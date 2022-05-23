@@ -42,13 +42,13 @@ vim.cmd [[
   autocmd BufFilePost *.cpp,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
   augroup END
 
-  " augroup _nvim_dap_repl
-  "   au FileType dap-repl lua require('dap.ext.autocompl').attach()
-  " augroup END
-]]
+  augroup _nvim_dap_repl
+    au FileType dap-repl lua require('dap.ext.autocompl').attach()
+  augroup END
 
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
+  " Autoformat
+  " augroup _lsp
+  " autocmd!
+  " autocmd BufWritePre * lua vim.lsp.buf.formatting()
+  " augroup end
+  ]]
