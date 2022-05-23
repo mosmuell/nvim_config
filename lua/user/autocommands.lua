@@ -43,9 +43,12 @@ vim.cmd [[
   augroup END
 
   augroup _nvim_dap_repl
-    au FileType dap-repl lua require('dap.ext.autocompl').attach()
+  au FileType dap-repl lua require('dap.ext.autocompl').attach()
   augroup END
 
+  augroup _yaml_ansible
+  autocmd BufRead,BufNewFile *.yml set filetype=yaml.ansible
+  augroup END
   " Autoformat
   " augroup _lsp
   " autocmd!
