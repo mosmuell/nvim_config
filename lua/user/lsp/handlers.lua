@@ -53,7 +53,7 @@ local function lsp_highlight_document(client)
       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-      ]],
+      ]]     ,
             false
         )
     end
@@ -89,7 +89,7 @@ M.on_attach = function(client, bufnr)
     end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)
-    
+
     -- Show line diagnostics automatically in hover window
     vim.api.nvim_create_autocmd("CursorHold", {
         buffer = bufnr,
@@ -104,7 +104,7 @@ M.on_attach = function(client, bufnr)
             }
             vim.diagnostic.open_float(nil, opts)
         end
-})
+    })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
