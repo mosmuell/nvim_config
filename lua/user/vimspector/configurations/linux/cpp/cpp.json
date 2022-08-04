@@ -1,20 +1,68 @@
 {
-  "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json",
-  "configurations": {
-    "Run Current File": {
-      "adapter": "CodeLLDB",
-      "configuration": {
-        "request": "launch",
-        "program": "${fileBasenameNoExtension}",
-        "cwd": "${fileDirname}",
-        "args": [ "*${args}" ],
-        "stdio": [
-          "${cin_file:/dev/null}",
-          null,
-          null
-        ],
-        "expressions": "native"
-      }
+    "configurations": {
+        "Launch": {
+            "adapter": "vscode-cpptools",
+            "filetypes": [
+                "cpp",
+                "c",
+                "objc",
+                "rust"
+            ],
+            "configuration": {
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${binary:${workspaceRoot\\}}",
+                "args": [
+                    "*${args}"
+                ],
+                "cwd": "${workspaceRoot}",
+                "environment": [
+                    {"name": "VIMRUNTIME", "value": "${workspaceRoot}"}
+                ],
+                "externalConsole": true,
+                "stopAtEntry": true,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": ""
+                }
+            }
+        },
+        "Attach": {
+            "adapter": "vscode-cpptools",
+            "filetypes": [
+                "cpp",
+                "c",
+                "objc",
+                "rust"
+            ],
+            "configuration": {
+                "request": "attach",
+                "program": "${binary:${workspaceRoot\\}}",
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": ""
+                }
+            }
+        }
     }
-  }
 }
