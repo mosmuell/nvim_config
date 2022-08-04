@@ -110,6 +110,13 @@ return packer.startup(function(use)
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
 
+    use {
+        'puremourning/vimspector',
+        config = function()
+            require("user.vimspector").setup()
+        end,
+    }
+
     ------------------------
     --- NON-LUA PLUGINS ---
     ------------------------

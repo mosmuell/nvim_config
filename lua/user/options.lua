@@ -47,3 +47,6 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- termdebug options
 vim.g.termdebug_wide=1
+
+-- python virtualenv support (see https://neovim.io/doc/user/provider.html)
+vim.g.python3_host_prog = "~/.virtualenvs/pynvim/bin/python"
