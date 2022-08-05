@@ -110,13 +110,6 @@ return packer.startup(function(use)
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
 
-    use {
-        'puremourning/vimspector',
-        config = function()
-            require("user.vimspector").setup()
-        end,
-    }
-
     ------------------------
     --- NON-LUA PLUGINS ---
     ------------------------
@@ -126,6 +119,15 @@ return packer.startup(function(use)
         'iamcco/markdown-preview.nvim',
         run = function() vim.fn['mkdp#util#install']() end,
         ft = { 'markdown' }
+    }
+
+    -- Debug Adapter Protocol
+    use {
+        'puremourning/vimspector',
+        run = ":VimspectorUpdate",
+        config = function()
+            require("user.vimspector").setup()
+        end,
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
