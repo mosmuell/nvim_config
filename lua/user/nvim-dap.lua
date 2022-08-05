@@ -133,7 +133,7 @@ nvim_dap.adapters = {
     cppdbg = {
         id = 'cppdbg',
         type = 'executable',
-        command = '~/.config/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7',
+        command = os.getenv("HOME") .. '/.config/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7',
     },
     -- python = {
     --     type = 'executable',
