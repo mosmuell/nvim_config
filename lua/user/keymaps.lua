@@ -59,7 +59,7 @@ keymap("n", "<M-S-q>", ":Bdelete! <CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Commenting out current line
-keymap("n", "<C-_>", '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
+keymap("n", "<C-_>", '<CMD>lua require("Comment.api").call("toggle.linewise.current")<CR>g@$', opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -76,7 +76,7 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Commenting out current block
-keymap("v", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+keymap("v", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)
 
 -- Visual Block --
 -- Move text up and down
