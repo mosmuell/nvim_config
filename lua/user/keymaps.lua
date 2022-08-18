@@ -59,7 +59,7 @@ keymap("n", "<M-S-q>", ":Bdelete! <CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Commenting out current line
-keymap("n", "<C-_>", '<CMD>lua require("Comment.api").call("toggle.linewise.current")<CR>g@$', opts)
+keymap("n", "<C-_>", '<CMD>lua require("Comment.api").toggle.linewise.current()<CR>', opts)
 
 -- Insert --
 -- Press jk fast to enter
