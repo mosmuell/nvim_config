@@ -254,6 +254,14 @@ local mappings = {
         x = { "<cmd>VimspectorReset<cr>", "Reset" },
         -- H = { "<cmd>lua require('user.vimspector').toggle_human_mode()<cr>", "Toggle HUMAN mode" },
     },
+
+    n = {
+        name = "Neogen docstring",
+        c = { "<cmd>lua require('neogen').generate({ type = 'class' })<CR>", "Class"},
+        f = { "<cmd>lua require('neogen').generate({ type = 'func' })<CR>", "Function"},
+        F = { "<cmd>lua require('neogen').generate({ type = 'file' })<CR>", "File"},
+        t = { "<cmd>lua require('neogen').generate({ type = 'type' })<CR>", "Type"},
+    },
 }
 
 which_key.setup(setup)

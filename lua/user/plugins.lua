@@ -110,6 +110,13 @@ return packer.startup(function(use)
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
 
+    -- Annotation Toolkit
+    use {
+        "danymat/neogen",
+        -- Uncomment next line if you want to follow only stable versions
+        -- tag = "*"
+    }
+
     ------------------------
     --- NON-LUA PLUGINS ---
     ------------------------
