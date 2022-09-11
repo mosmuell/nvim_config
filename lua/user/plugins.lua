@@ -62,7 +62,7 @@ return packer.startup(function(use)
     use "lunarvim/onedarker.nvim"
     use {
         "lunarvim/darkplus.nvim",
-        commit = "fe67a1a1663e65ac4fbd3e9a18874d6990a4f6e5"
+        -- commit = "fe67a1a1663e65ac4fbd3e9a18874d6990a4f6e5"
     }
     -- use "tomasiser/vim-code-dark"
     -- use "Mofiqul/vscode.nvim"
