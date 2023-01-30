@@ -7,7 +7,7 @@ comment.setup {
     -- return a custom commentstring which will be used for comment/uncomment the lines.
     -- Using nvim-ts-context-commentstring to compute the commentstring using treesitter.
 
-     ---@param ctx CommentCtx
+    ---@param ctx CommentCtx
     pre_hook = function(ctx)
         -- Only calculate commentstring for tsx filetypes
         if vim.bo.filetype == 'typescriptreact' then
