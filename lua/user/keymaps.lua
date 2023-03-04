@@ -19,6 +19,11 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
+-- Finding files
+keymap("n", "<C-p>",
+    "<cmd>lua require('telescope.builtin').find_files({hidden=true, require('telescope.themes').get_dropdown{previewer = false}})<cr>",
+    opts)
+
 -- Better window navigation
 keymap("n", "<M-h>", "<C-w>h", opts)
 keymap("n", "<M-j>", "<C-w>j", opts)
@@ -38,8 +43,8 @@ keymap("n", "<M-Left>", '<cmd>lua require("tmux").resize_left()<cr>', opts)
 keymap("n", "<M-Right>", '<cmd>lua require("tmux").resize_right()<cr>', opts)
 
 -- Navigate buffers
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+keymap("n", "<tab>", ":bnext<CR>", opts)
+keymap("n", "<S-tab>", ":bprevious<CR>", opts)
 keymap("n", "<M-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
 keymap("n", "<M-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
 keymap("n", "<M-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
