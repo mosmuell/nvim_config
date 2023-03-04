@@ -1,7 +1,8 @@
 local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then PACKER_BOOTSTRAP = fn.system { "git", "clone",
+if fn.empty(fn.glob(install_path)) > 0 then
+    PACKER_BOOTSTRAP = fn.system { "git", "clone",
         "--depth",
         "1",
         "https://github.com/wbthomason/packer.nvim",
@@ -38,13 +39,11 @@ packer.init {
 return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+    use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+    use "windwp/nvim-autopairs"  -- Autopairs, integrates with both cmp and treesitter
     use "numToStr/Comment.nvim"
-    -- use {"numToStr/Comment.nvim", tag="v0.6"}
     use "kyazdani42/nvim-web-devicons"
-    use {"kyazdani42/nvim-tree.lua", commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c"}
+    use { "kyazdani42/nvim-tree.lua" }
     use "akinsho/bufferline.nvim"
     use "moll/vim-bbye"
     use "nvim-lualine/lualine.nvim"
@@ -53,7 +52,6 @@ return packer.startup(function(use)
     use "lewis6991/impatient.nvim"
     use "lukas-reineke/indent-blankline.nvim"
     -- use "goolord/alpha-nvim"
-    use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
     use "folke/which-key.nvim"
 
     -- Colorschemes
@@ -68,15 +66,15 @@ return packer.startup(function(use)
     -- use "Mofiqul/vscode.nvim"
 
     -- cmp plugins
-    use "hrsh7th/nvim-cmp" -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "hrsh7th/nvim-cmp"         -- The completion plugin
+    use "hrsh7th/cmp-buffer"       -- buffer completions
+    use "hrsh7th/cmp-path"         -- path completions
+    use "hrsh7th/cmp-cmdline"      -- cmdline completions
     use "hrsh7th/cmp-nvim-lsp"
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
 
     -- snippets
-    use "L3MON4D3/LuaSnip" --snippet engine
+    use "L3MON4D3/LuaSnip"             --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
