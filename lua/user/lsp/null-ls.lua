@@ -13,7 +13,6 @@ null_ls.setup({
     sources = {
         formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
         formatting.black.with({ extra_args = { "--fast", "-l 88" } }),
-        -- formatting.stylua,
         diagnostics.flake8.with({ extra_args = { "--ignore=E501,W503" } }), -- ignoring "line too long" & "line break before binary operator"
         diagnostics.mypy.with({ extra_args = { "--strict" } })
         -- diagnostics.cppcheck.with({extra_args = { "--language=cpp" }})
