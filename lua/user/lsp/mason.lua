@@ -1,7 +1,7 @@
 local servers = {
     "lua_ls",
     "clangd",
-    "ltext",
+    -- "ltext-ls",
     "cmake",
     "ansiblels",
     -- "cssls",
