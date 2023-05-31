@@ -20,9 +20,12 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Finding files
-keymap("n", "<C-p>",
-    "<cmd>lua require('telescope.builtin').find_files({hidden=true, require('telescope.themes').get_dropdown{previewer = false}})<cr>",
-    opts)
+keymap(
+	"n",
+	"<C-p>",
+	"<cmd>lua require('telescope.builtin').find_files({hidden=true, require('telescope.themes').get_dropdown{previewer = false}})<cr>",
+	opts
+)
 
 -- Better window navigation
 keymap("n", "<M-h>", "<C-w>h", opts)
@@ -96,7 +99,6 @@ keymap("t", "<M-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<M-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<M-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<M-l>", "<C-\\><C-N><C-w>l", term_opts)
-
 
 -- nvim dap --
 -- keymap("n", "<F5>", "<CMD>lua require'dap'.continue()<CR>", opts)

@@ -1,6 +1,6 @@
 local status_ok, dap_python = pcall(require, "dap-python")
 if not status_ok then
-    return
+	return
 end
 
-dap_python.setup('~/.virtualenvs/debugpy/bin/python', { include_configs = false })
+dap_python.setup("~/.virtualenvs/debugpy/bin/python", { include_configs = false })
