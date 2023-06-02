@@ -85,7 +85,7 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim") -- simple to use language server installer
 	use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	use({ "RRethy/vim-illuminate" }) -- automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching-
+	use("RRethy/vim-illuminate") -- automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching-
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
