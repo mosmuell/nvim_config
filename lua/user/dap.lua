@@ -40,7 +40,7 @@ function M.config()
     -- },
     lldb = {
       type = "executable",
-      command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
+      command = vim.fn.stdpath "data" .. "/mason/packages/codelldb/codelldb",
       name = "lldb",
     },
     codelldb = {

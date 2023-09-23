@@ -23,24 +23,24 @@ function M.config()
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {
-        border = "curved",
-        winblend = 0,
-        highlights = {
-            border = "Normal",
-            background = "Normal",
-        },
+      border = "curved",
+      winblend = 0,
+      highlights = {
+        border = "Normal",
+        background = "Normal",
+      },
     },
   }
 
   function _G.set_terminal_keymaps()
     local opts = { noremap = true }
-    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-h>', [[<C-\><C-n><C-W>h]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-j>', [[<C-\><C-n><C-W>j]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-k>', [[<C-\><C-n><C-W>k]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-l>', [[<C-\><C-n><C-W>l]], opts)
-    vim.api.nvim_buf_set_keymap(0, 'n', '<tab>', [[<C-w><C-p>:bnext<CR>]], opts)
-    vim.api.nvim_buf_set_keymap(0, 'n', '<S-tab>', [[<C-w><C-p>:bprevious<CR>]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<M-h>", [[<C-\><C-n><C-W>h]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<M-j>", [[<C-\><C-n><C-W>j]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<M-k>", [[<C-\><C-n><C-W>k]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "<M-l>", [[<C-\><C-n><C-W>l]], opts)
+    vim.api.nvim_buf_set_keymap(0, "n", "<tab>", [[<C-w><C-p>:bnext<CR>]], opts)
+    vim.api.nvim_buf_set_keymap(0, "n", "<S-tab>", [[<C-w><C-p>:bprevious<CR>]], opts)
 
     -- Resize with arrows
     vim.api.nvim_buf_set_keymap(0, "t", "<M-Up>", "<cmd>:resize +2<CR>", opts)
