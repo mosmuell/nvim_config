@@ -33,22 +33,12 @@ function M.config()
         source_filetype = "python",
       },
     },
-    -- cppdbg = {
-    --   id = "cppdbg",
-    --   type = "executable",
-    --   command = os.getenv "HOME" .. "/.config/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7",
-    -- },
-    lldb = {
-      type = "executable",
-      command = vim.fn.stdpath "data" .. "/mason/packages/codelldb/codelldb",
-      name = "lldb",
-    },
     codelldb = {
       type = "server",
       port = "${port}",
       executable = {
         -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
-        -- command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
+        command = vim.fn.stdpath "data" .. "/mason/packages/codelldb/codelldb",
         args = { "--port", "${port}" },
         -- On windows you may have to uncomment this:
         -- detached = false,
@@ -93,7 +83,7 @@ function M.config()
     cpp = {
       {
         name = "Launch file",
-        type = "lldb",
+        type = "codelldb",
         request = "launch",
         MIMode = "gdb",
         miDebuggerPath = "/usr/bin/gdb",
@@ -125,7 +115,7 @@ function M.config()
     c = {
       {
         name = "Launch file",
-        type = "lldb",
+        type = "codelldb",
         request = "launch",
         program = function()
           local path
