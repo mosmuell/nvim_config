@@ -66,6 +66,7 @@ customKeymap("n", "<leader>ff", ":Telescope find_files<CR>", "Find files")
 customKeymap("n", "<leader>ft", ":Telescope live_grep<CR>", "Find words")
 customKeymap("n", "<leader>fp", ":Telescope projects<CR>", "Find projects")
 customKeymap("n", "<leader>fb", ":Telescope buffers<CR>", "Find buffers")
+customKeymap("n", "<C-p>", ":Telescope buffers<CR>", "Find buffers")
 
 -- Git
 customKeymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit")
@@ -114,3 +115,6 @@ customKeymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", "Termin
 
 -- Lsp
 customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
+
+-- Toggleterm
+customKeymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", "Open Toggleterm terminal")
