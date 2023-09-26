@@ -48,10 +48,10 @@ function M.config()
   dap.configurations = {
     python = {
       {
-        name = "Python: Run Current File as Module",
+        name = "Python: Run Current File as Module", -- if you change the name, you have to adapt dap-utils, as well
         type = "python",
         request = "launch",
-        module = "${fileBasenameNoExtension}",
+        module = "",  -- will be filled by dap-utils
         console = "internalConsole",
         cwd = "${workspaceFolder}",
         pythonPath = require("utils.dap-utils").venv_python(),
