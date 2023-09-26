@@ -1,5 +1,21 @@
 local customKeymap = require("utils.customKeymap").customKeymap
 
+-----------------------------|
+--- Mapping function keys ---|
+-----------------------------|
+-- https://unix.stackexchange.com/questions/53581/sending-function-keys-f1-f12-over-ssh/53589#53589
+-- https://stackoverflow.com/questions/19062315/how-do-i-find-out-what-escape-sequence-my-terminal-needs-to-send
+-- https://www.reddit.com/r/neovim/comments/1111ixq/there_are_60_f_keys/j8e2x5n/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+--
+-- Nvim maps modifiers + function keys to other function keys. Pressing Shift+F5, for example, yields "<F17>".
+--
+-- You could also adapt the characters that your terminal is emitting.
+-- For alacritty, see https://github.com/alacritty/alacritty/issues/690
+-- Note that those keybindings don't work for `xterm` which uses different
+-- modifiers (see https://www.xfree86.org/current/ctlseqs.html).
+-----------------------------|
+
+
 --Remap space as leader key
 customKeymap("", "<Space>", "<Nop>", "Leader key")
 
@@ -104,7 +120,7 @@ customKeymap(
 
 -- DAP
 customKeymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint")
-customKeymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", "Continue")
+customKeymap("n", "<leader>dc", "<cmd>lua require'utils.dap-utils'.launch_or_continue()<cr>", "Continue")
 customKeymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
 customKeymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
 customKeymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", "Step out")
@@ -112,6 +128,13 @@ customKeymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", "Togg
 customKeymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", "Run last")
 customKeymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", "Toggle Dap UI")
 customKeymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", "Terminate")
+-- customKeymap("n", "<S-F5>", "<cmd>lua require'dap'.terminate()<cr>", "Terminate")
+customKeymap("n", "<F17>", "<cmd>lua require'dap'.terminate()<cr>", "Terminate")
+customKeymap("n", "<F5>", "<cmd>lua require'utils.dap-utils'.launch_or_continue()<cr>", "Continue")
+customKeymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint")
+customKeymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
+customKeymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
+customKeymap("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>", "Step out")
 
 -- Lsp
 customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
