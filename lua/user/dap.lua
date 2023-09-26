@@ -47,21 +47,23 @@ function M.config()
   }
   dap.configurations = {
     python = {
-
+      {
+        name = "Python: Run Current File as Module",
+        type = "python",
+        request = "launch",
+        module = "${fileBasenameNoExtension}",
+        console = "internalConsole",
+        cwd = "${workspaceFolder}",
+        pythonPath = require("utils.dap-utils").venv_python(),
+      },
       {
         type = "python",
         request = "launch",
-        name = "Launch file",
+        name = "Python: Launch Current File as Program",
         justMyCode = false,
         program = "${file}",
         console = "internalConsole", -- other options: internalTerminal, externalTerminal
-        pythonPath = function()
-          local venv_path = os.getenv "VIRTUAL_ENV"
-          if venv_path then
-            return venv_path .. "/bin/python"
-          end
-          return vim.fn.exepath "python3" or vim.fn.exepath "python" or "python"
-        end,
+        pythonPath = require("utils.dap-utils").venv_python(),
       },
       {
         type = "python",

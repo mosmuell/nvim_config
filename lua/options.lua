@@ -42,4 +42,7 @@ vim.opt.iskeyword:append "-" -- treats words with `-` as single words
 vim.opt.formatoptions:remove { "c", "r", "o" } -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
 vim.opt.shell = "/usr/bin/zsh"
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅" -- Show '⋅' whenever there is a space
+vim.opt.listchars:append "eol:↴" -- Show '↴' whenever there is an end-of-line character
 vim.g.mapleader = " "
