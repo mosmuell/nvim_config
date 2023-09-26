@@ -52,9 +52,23 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "javascript", "typescript", "lua" },
   callback = function()
-    vim.lsp.buf.format()
+    vim.cmd "setlocal shiftwidth=2"
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "python", "cpp", "c" },
+  callback = function()
+    vim.cmd "setlocal shiftwidth=4"
+  end,
+})
+
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })
