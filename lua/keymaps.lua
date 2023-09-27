@@ -15,7 +15,6 @@ local customKeymap = require("utils.customKeymap").customKeymap
 -- modifiers (see https://www.xfree86.org/current/ctlseqs.html).
 -----------------------------|
 
-
 --Remap space as leader key
 customKeymap("", "<Space>", "<Nop>", "Leader key")
 
@@ -90,15 +89,25 @@ customKeymap("n", "<leader>gl", "<cmd>lua require('gitsigns').blame_line()<cr>",
 customKeymap("n", "<leader>gL", "<cmd>lua require('gitsigns').blame_line { full = true }<cr>", "View full Git blame")
 customKeymap("n", "<leader>gp", "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview Git hunk")
 customKeymap("n", "<leader>gr", "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Git hunk")
-customKeymap("v", "<leader>gr", "<cmd>lua require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>", "Reset Git selection")
+customKeymap(
+  "v",
+  "<leader>gr",
+  "<cmd>lua require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>",
+  "Reset Git selection"
+)
 customKeymap("n", "<leader>gR", "<cmd>lua require('gitsigns').reset_buffer()<cr>", "Reset Git buffer")
 customKeymap("n", "<leader>gs", "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Git hunk")
-customKeymap("v", "<leader>gs", "<cmd>lua require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>", "Reset Git selection")
+customKeymap(
+  "v",
+  "<leader>gs",
+  "<cmd>lua require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>",
+  "Reset Git selection"
+)
 customKeymap("n", "<leader>gS", "<cmd>lua require('gitsigns').stage_buffer()<cr>", "Stage Git buffer")
 customKeymap("n", "<leader>gu", "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", "Unstage Git hunk")
 customKeymap("n", "<leader>gd", "<cmd>lua require('gitsigns').diffthis()<cr>", "View Git diff")
-customKeymap("n", "<leader>gj", "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk" )
-customKeymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" )
+customKeymap("n", "<leader>gj", "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk")
+customKeymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk")
 customKeymap("n", "]g", "<cmd>lua require('gitsigns').next_hunk()", "Next Git hunk")
 customKeymap("n", "[g", "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous Git hunk")
 
