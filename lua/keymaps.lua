@@ -136,8 +136,12 @@ customKeymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", "Step o
 customKeymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", "Step out")
 customKeymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle REPL")
 customKeymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", "Restart")
-customKeymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", "Toggle Dap UI")
+customKeymap("n", "<leader>dU", "<cmd>lua require'dapui'.toggle()<cr>", "Toggle Dap UI")
 customKeymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", "Terminate")
+customKeymap("n", "<leader>du", "<cmd>lua require'dap'.up()<cr>", "Go up in stack trace")
+customKeymap("n", "<leader>dd", "<cmd>lua require'dap'.down()<cr>", "Go down in stack trace")
+customKeymap("n", "<leader>dR", "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor")
+customKeymap("n", "<leader>dg", "<cmd>lua require'dap'.session()<cr>", "Get Session")
 customKeymap("n", "<F5>", "<cmd>lua require'utils.dap-utils'.launch_or_continue()<cr>", "Continue")
 customKeymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint")
 customKeymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
@@ -145,7 +149,7 @@ customKeymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
 customKeymap("n", "<F17>", "<cmd>lua require'dap'.terminate()<cr>", "Terminate") -- Shift-<F5>
 customKeymap("n", "<F23>", "<cmd>lua require'dap'.step_out()<cr>", "Step out") -- Shift+<F11>
 customKeymap("n", "<F41>", "<cmd>lua require'dap'.run_last()<cr>", "Restart") -- Ctrl+Shift+<F5>
-customKeymap("n", "<C-k>", "<cmd>lua require('dapui').eval()<cr>", "Evaluate expression")
+-- customKeymap("n", "<C-k>", "<cmd>lua require('dapui').eval()<cr>", "Evaluate expression") --> defined in lua/user/dap.lua (keybinding only present when debugging)
 
 -- Lsp
 customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")

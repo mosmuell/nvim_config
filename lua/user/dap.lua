@@ -24,6 +24,27 @@ function M.config()
     dapui.close()
   end
 
+  local keymap_restore = {}
+  dap.listeners.after["event_initialized"]["me"] = function()
+    for _, buf in pairs(vim.api.nvim_list_bufs()) do
+      local keymaps = vim.api.nvim_buf_get_keymap(buf, "n")
+      for _, keymap in pairs(keymaps) do
+        if keymap.lhs == "<C-k>" then
+          table.insert(keymap_restore, keymap)
+          vim.api.nvim_buf_del_keymap(buf, "n", "<C-k>")
+        end
+      end
+    end
+    vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>lua require('dapui').eval()<cr>", { silent = true })
+  end
+
+  dap.listeners.after["event_terminated"]["me"] = function()
+    for _, keymap in pairs(keymap_restore) do
+      vim.api.nvim_buf_set_keymap(keymap.buffer, keymap.mode, keymap.lhs, keymap.rhs, { silent = keymap.silent == 1 })
+    end
+    keymap_restore = {}
+  end
+
   dap.adapters = {
     python = {
       type = "executable",
