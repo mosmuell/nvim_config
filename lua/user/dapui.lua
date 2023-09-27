@@ -12,7 +12,7 @@ local M = {
 
 function M.config()
   require("dapui").setup {
-    expand_lines = true,
+    expand_lines = false,
     icons = { expanded = "", collapsed = "", circular = "" },
     mappings = {
       -- Use a table to apply multiple mappings
