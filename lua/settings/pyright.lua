@@ -7,7 +7,7 @@ return {
         diagnosticMode = "workspace",
         useLibraryCodeForTypes = true,
       },
-      pythonPath = require("dap-utils").venv_python(),
+      pythonPath = require("utils.dap-utils").venv_python(),
     },
   },
   single_file_support = true,
