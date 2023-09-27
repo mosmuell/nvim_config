@@ -28,7 +28,7 @@ local get_launchjs_entries = function()
   --
   for _, config in ipairs(require("dap").configurations.python) do
     config.pythonPath = M.venv_python()
-    if config.name == "Python: Run Current File as Module" then
+    if config.module == "${fileAsModule}" then
       -- Retrieve the directory in which Neovim was started
       local workspace_folder = vim.fn.getcwd()
       -- Full path to the current file

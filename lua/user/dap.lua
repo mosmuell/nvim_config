@@ -48,13 +48,14 @@ function M.config()
   dap.configurations = {
     python = {
       {
-        name = "Python: Run Current File as Module", -- if you change the name, you have to adapt dap-utils, as well
+        name = "Python: Run Current File as Module",
         type = "python",
         request = "launch",
-        module = "",  -- will be filled by dap-utils
+        module = "${fileAsModule}", -- self-defined variable. See lua/utils/dap-utils.lua
         console = "internalConsole",
         cwd = "${workspaceFolder}",
         pythonPath = require("utils.dap-utils").venv_python(),
+        justMyCode = false,
       },
       {
         type = "python",
