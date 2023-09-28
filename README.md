@@ -20,6 +20,18 @@ make CMAKE_BUILD_TYPE=Release
 sudo make install
 ```
 
+## Install the latest node-js
+
+For some things to work, you need a recent version of `node`. You can normally install it using your package manager.
+
+On Ubuntu, however, the version will not be recent enough. You can [update it](https://davidwalsh.name/upgrade-nodejs) using `npm`:
+
+```bash
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+```
+
 ## Installation
 
 Clone this repository to the `~/.config/nvim` directory. Make sure to save or backup your old configuration beforehand.
