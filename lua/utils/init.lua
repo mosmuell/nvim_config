@@ -10,6 +10,7 @@ M.servers = {
   "bashls",
   "jsonls",
   "yamlls",
+  "ansiblels",
 }
 
 M.daps = {
