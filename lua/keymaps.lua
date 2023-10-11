@@ -33,17 +33,23 @@ customKeymap("n", "<M-j>", "<C-w>j", "Navigate to the bottom split")
 customKeymap("n", "<M-k>", "<C-w>k", "Navigate to the top split")
 customKeymap("n", "<M-l>", "<C-w>l", "Navigate to the right split")
 
--- Resize with arrows
-customKeymap("n", "<M-Up>", ":resize -2<CR>", "Shrink window horizontally")
-customKeymap("n", "<M-Down>", ":resize +2<CR>", "Increase window horizontally")
-customKeymap("n", "<M-Left>", ":vertical resize -2<CR>", "Shrink window vertically")
-customKeymap("n", "<M-Right>", ":vertical resize +2<CR>", "Increase window vertically")
-
 -- -- Resize with arrows
--- keymap("n", "<M-Up>", '<cmd>lua require("tmux").resize_top()<cr>', opts)
--- keymap("n", "<M-Down>", '<cmd>lua require("tmux").resize_bottom()<cr>', opts)
--- keymap("n", "<M-Left>", '<cmd>lua require("tmux").resize_left()<cr>', opts)
--- keymap("n", "<M-Right>", '<cmd>lua require("tmux").resize_right()<cr>', opts)
+-- customKeymap("n", "<M-Up>", ":resize -2<CR>", "Shrink window horizontally")
+-- customKeymap("n", "<M-Down>", ":resize +2<CR>", "Increase window horizontally")
+-- customKeymap("n", "<M-Left>", ":vertical resize -2<CR>", "Shrink window vertically")
+-- customKeymap("n", "<M-Right>", ":vertical resize +2<CR>", "Increase window vertically")
+
+-- Custom navigator bindings (as set in tmux)
+customKeymap("n", "<M-h>", '<cmd>lua require("tmux").move_left()<cr>', "Move cursor to left pane")
+customKeymap("n", "<M-j>", '<cmd>lua require("tmux").move_bottom()<cr>', "Move cursor to bottom pane")
+customKeymap("n", "<M-k>", '<cmd>lua require("tmux").move_top()<cr>', "Move cursor to top pane")
+customKeymap("n", "<M-l>", '<cmd>lua require("tmux").move_right()<cr>', "Move cursor to right pane")
+
+-- Resize with arrows
+customKeymap("n", "<M-Up>", '<cmd>lua require("tmux").resize_top()<cr>', "Resize top")
+customKeymap("n", "<M-Down>", '<cmd>lua require("tmux").resize_bottom()<cr>', "Resize bottom")
+customKeymap("n", "<M-Left>", '<cmd>lua require("tmux").resize_left()<cr>', "Resize left")
+customKeymap("n", "<M-Right>", '<cmd>lua require("tmux").resize_right()<cr>', "Resize right")
 
 -- Navigate buffers
 customKeymap("n", "<Tab>", ":bnext<CR>", "Next buffer")
