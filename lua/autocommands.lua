@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "javascript", "typescript", "lua" },
+  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua" },
   callback = function()
     vim.cmd "setlocal shiftwidth=2"
   end,
@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.py", "*.lua" },
+  pattern = { "*.py", "*.lua", "*.tsx", "*.ts" },
   callback = function()
     vim.lsp.buf.format()
   end,
