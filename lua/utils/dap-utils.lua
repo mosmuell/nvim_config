@@ -1,7 +1,7 @@
 local M = {}
-
 M.venv_python = function()
-  local venv_path = os.getenv "VIRTUAL_ENV"
+  local paths = require "utils.paths"
+  local venv_path = paths.get_venv_or_local_venv_dir()
   if venv_path then
     return venv_path .. "/bin/python"
   end
