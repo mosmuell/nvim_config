@@ -11,8 +11,8 @@ local M = {
 }
 
 local function get_relative_venv_path()
-  local venv_path = os.getenv "VIRTUAL_ENV"
-  if venv_path == nil then
+  local venv_path = require("utils.paths").get_venv_or_local_venv_dir()
+  if not venv_path then
     return ""
   end
 
