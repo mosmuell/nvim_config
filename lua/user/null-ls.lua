@@ -27,6 +27,7 @@ function M.config()
       formatting.stylua,
       -- formatting.google_java_format,
       diagnostics.flake8,
+      diagnostics.eslint_d,
       diagnostics.cpplint,
     },
   }
