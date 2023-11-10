@@ -4,6 +4,12 @@ local M = {
   event = "VimEnter",
 }
 
+local function change_root_to_global_cwd()
+  local api = require "nvim-tree.api"
+  local global_cwd = vim.fn.getcwd(-1, -1)
+  api.tree.change_root(global_cwd)
+end
+
 local function on_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -81,6 +87,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "o", api.node.open.edit, opts "Open")
   vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
   vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
+  vim.keymap.set("n", "<C-c>", change_root_to_global_cwd, opts "Change Root To Global CWD")
 end
 
 function M.config()
