@@ -7,6 +7,11 @@ local M = {
 local function on_attach(bufnr)
   local api = require "nvim-tree.api"
 
+  -- Automatically open file upon creation
+  api.events.subscribe(api.events.Event.FileCreated, function(file)
+    vim.cmd("edit " .. file.fname)
+  end)
+
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
