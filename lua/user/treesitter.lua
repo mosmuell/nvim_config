@@ -22,12 +22,15 @@ function M.config()
     ensure_installed = {
       "bash",
       "cpp",
+      "html",
+      "javascript",
       "json",
       "lua",
       "markdown",
       "markdown_inline",
       "python",
       "toml",
+      "typescript",
       "tsx",
       "yaml",
     }, -- put the language you want in this array
