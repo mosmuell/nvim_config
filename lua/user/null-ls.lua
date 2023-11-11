@@ -10,27 +10,20 @@ local M = {
   },
 }
 
-local function get_relative_venv_path()
-  local venv_path = require("utils.paths").get_venv_or_local_venv_dir()
+local function get_venv_executable(executable)
+  local paths = require "utils.paths"
+  local venv_path = paths.get_venv_or_local_venv_dir()
   if not venv_path then
-    return ""
+    return nil
   end
 
-  local cwd = vim.fn.getcwd()
+  local venv_executable_path = venv_path .. "/bin/" .. executable
 
-  -- Count the number of "/" in cwd
-  local slash_count = 0
-  for _ in string.gmatch(cwd, "/") do
-    slash_count = slash_count + 1
+  if not paths.file_exists(venv_executable_path) then
+    return nil
   end
 
-  -- Create a string with the same number of "../"
-  local relative_path = string.rep("../", slash_count)
-
-  -- Append the venv_path to the relative path
-  local full_path = relative_path .. venv_path
-
-  return full_path
+  return venv_executable_path
 end
 
 function M.config()
@@ -45,15 +38,15 @@ function M.config()
     sources = {
       formatting.prettierd.with { extra_filetypes = { "toml" } },
       formatting.black.with {
-        prefer_local = get_relative_venv_path() .. "/bin",
+        command = get_venv_executable "black",
         extra_args = { "--fast" },
       },
-      formatting.isort.with { prefer_local = get_relative_venv_path() .. "/bin" },
+      formatting.isort.with { command = get_venv_executable "isort" },
       formatting.stylua,
       -- formatting.google_java_format,
       diagnostics.eslint_d,
       diagnostics.flake8.with {
-        prefer_local = get_relative_venv_path() .. "/bin",
+        command = get_venv_executable "flake8",
       },
       diagnostics.cpplint,
     },
