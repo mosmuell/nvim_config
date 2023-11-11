@@ -22,4 +22,14 @@ M.get_venv_or_local_venv_dir = function()
   local venv_path = os.getenv "VIRTUAL_ENV" or M.get_local_venv_dir()
   return venv_path
 end
+
+M.file_exists = function(name)
+  local f = io.open(name, "r")
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
+end
 return M
