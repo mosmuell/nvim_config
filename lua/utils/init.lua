@@ -25,6 +25,7 @@ M.formatters = {
 
 M.linters = {
   "flake8",
+  "mypy",
 }
 
 return M

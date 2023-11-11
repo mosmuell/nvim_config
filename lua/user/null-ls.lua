@@ -48,6 +48,9 @@ function M.config()
       diagnostics.flake8.with {
         command = get_venv_executable "flake8",
       },
+      diagnostics.mypy.with {
+        command = get_venv_executable "mypy",
+      },
       diagnostics.cpplint,
     },
   }
