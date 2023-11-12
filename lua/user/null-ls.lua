@@ -42,9 +42,11 @@ function M.config()
         extra_args = { "--fast" },
       },
       formatting.isort.with { command = get_venv_executable "isort" },
+      -- formatting.ruff.with { command = get_venv_executable "ruff" },
       formatting.stylua,
       -- formatting.google_java_format,
       diagnostics.eslint_d,
+      diagnostics.ruff.with { command = get_venv_executable "ruff" },
       diagnostics.flake8.with {
         command = get_venv_executable "flake8",
       },
