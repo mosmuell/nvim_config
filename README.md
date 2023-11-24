@@ -1,6 +1,6 @@
 # Personal Neovim Config
 
-This repository contains my personal neovim configuration I use on a daily basis. It is based of the [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide) and customised to my needs.
+This repository contains my personal neovim configuration I use on a daily basis. It is based off [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide) and customised to my needs.
 
 All the included plugins are pinned to a version that ensures they are compatible and will not update potentially introducing errors into your config.
 
@@ -157,6 +157,7 @@ Make sure the formatter or linter is installed and add it to this setup function
 - [bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [cmp-path](https://github.com/hrsh7th/cmp-path)
@@ -173,7 +174,9 @@ Make sure the formatter or linter is installed and add it to this setup function
 - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim)
 - [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- [neodev.nvim](https://github.com/folke/neodev.nvim)
+- [neorepl.nvim](https://github.com/ii14/neorepl.nvim)
+- [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
@@ -186,6 +189,7 @@ Make sure the formatter or linter is installed and add it to this setup function
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [tmux.nvim](https://github.com/aserowy/tmux.nvim)
 - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [vim-illuminate](https://github.com/RRethy/vim-illuminate)
