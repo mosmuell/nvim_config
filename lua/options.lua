@@ -45,4 +45,6 @@ vim.opt.shell = "/usr/bin/zsh"
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅" -- Show '⋅' whenever there is a space
 vim.opt.listchars:append "eol:↴" -- Show '↴' whenever there is an end-of-line character
+vim.opt.foldmethod = "expr" -- folding will be done using user-defined expression
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitters foldexpr as user-defined expression
 vim.g.mapleader = " "
