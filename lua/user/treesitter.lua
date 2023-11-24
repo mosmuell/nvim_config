@@ -1,6 +1,6 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
-  commit = "226c1475a46a2ef6d840af9caa0117a439465500",
+  commit = "649d137371e9214d30b20565e0574824fa3a3670",
   event = "BufReadPost",
   dependencies = {
     {
@@ -15,7 +15,6 @@ local M = {
   },
 }
 function M.config()
-  local treesitter = require "nvim-treesitter"
   local configs = require "nvim-treesitter.configs"
 
   configs.setup {
