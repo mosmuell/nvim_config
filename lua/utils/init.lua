@@ -7,6 +7,7 @@ M.servers = {
   "html",
   "tsserver",
   "pyright",
+  "ruff_lsp",
   "bashls",
   "jsonls",
   "yamlls",
@@ -19,11 +20,13 @@ M.daps = {
 }
 
 M.formatters = {
+  "ruff",
   "stylua",
   "black",
 }
 
 M.linters = {
+  "ruff",
   "flake8",
   "mypy",
 }
