@@ -87,7 +87,7 @@ customKeymap("n", "<leader>ff", ":Telescope find_files<CR>", "Find files")
 customKeymap("n", "<leader>ft", ":Telescope live_grep<CR>", "Find words")
 customKeymap("n", "<leader>fp", ":Telescope projects<CR>", "Find projects")
 customKeymap("n", "<leader>fb", ":Telescope buffers<CR>", "Find buffers")
-customKeymap("n", "<C-p>", ":Telescope buffers<CR>", "Find buffers")
+customKeymap("n", "<C-p>", ":Telescope find_files<CR>", "Find files")
 
 -- Git
 customKeymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit")
