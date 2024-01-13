@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua" },
+  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "markdown" },
   callback = function()
     vim.cmd "setlocal shiftwidth=2"
   end,
