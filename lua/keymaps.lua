@@ -52,16 +52,16 @@ customKeymap("n", "<M-Left>", '<cmd>lua require("tmux").resize_left()<cr>', "Res
 customKeymap("n", "<M-Right>", '<cmd>lua require("tmux").resize_right()<cr>', "Resize right")
 
 -- Navigate buffers
-customKeymap("n", "<Tab>", ":bnext<CR>", "Next buffer")
-customKeymap("n", "<S-Tab>", ":bprevious<CR>", "Previous buffer")
-customKeymap("n", "<S-l>", ":bnext<CR>", "Next buffer")
-customKeymap("n", "<S-h>", ":bprevious<CR>", "Previous buffer")
+-- customKeymap("n", "<Tab>", ":bnext<CR>", "Next buffer")
+-- customKeymap("n", "<S-Tab>", ":bprevious<CR>", "Previous buffer")
+-- customKeymap("n", "<S-l>", ":bnext<CR>", "Next buffer")
+-- customKeymap("n", "<S-h>", ":bprevious<CR>", "Previous buffer")
 
 -- Clear highlights
 customKeymap("n", "<leader>h", "<cmd>nohlsearch<CR>", "Clear highlights")
 
 -- Close buffer
-customKeymap("n", "<A-q>", "<cmd>Bdelete!<CR>", "Close buffer")
+-- customKeymap("n", "<A-q>", "<cmd>Bdelete!<CR>", "Close buffer")
 
 -- Better paste
 customKeymap("v", "p", "P", "Better paste")
@@ -82,12 +82,23 @@ customKeymap("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle explorer")
 customKeymap("n", "<C-n>", ":NvimTreeToggle<CR>", "Toggle explorer")
 
 -- Telescope
-customKeymap("n", "<leader>f", "", "Find files")
-customKeymap("n", "<leader>ff", ":Telescope find_files<CR>", "Find files")
+customKeymap("n", "<leader>f", "", "Telescope (find ...)")
+customKeymap(
+  "n",
+  "<leader>ff",
+  "<cmd>lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, no_ignore_parent = true })<CR>",
+  "Find all files"
+)
 customKeymap("n", "<leader>ft", ":Telescope live_grep<CR>", "Find words")
 customKeymap("n", "<leader>fp", ":Telescope projects<CR>", "Find projects")
 customKeymap("n", "<leader>fb", ":Telescope buffers<CR>", "Find buffers")
-customKeymap("n", "<C-p>", ":Telescope find_files<CR>", "Find files")
+customKeymap("n", "<leader>fh", ":Telescope help_tags<CR>", "List help tags")
+customKeymap(
+  "n",
+  "<C-p>",
+  "<CMD>lua require('user.telescope').project_files()<CR>",
+  "Find project files (respects gitignore)"
+)
 
 -- Git
 customKeymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit")
