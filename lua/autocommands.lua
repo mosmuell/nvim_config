@@ -1,3 +1,4 @@
+-- Close certain pages (like help or man pages) by pressing 'q'
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
   callback = function()
