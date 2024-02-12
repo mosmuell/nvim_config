@@ -46,7 +46,7 @@ function M.config()
       formatting.stylua,
       -- formatting.google_java_format,
       diagnostics.eslint_d,
-      -- diagnostics.ruff.with { command = get_venv_executable "ruff" },
+      diagnostics.ruff.with { command = get_venv_executable "ruff" },
       -- diagnostics.flake8.with {
       --   command = get_venv_executable "flake8",
       -- },
