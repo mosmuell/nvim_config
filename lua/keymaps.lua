@@ -33,6 +33,14 @@ customKeymap("n", "<M-j>", "<C-w>j", "Navigate to the bottom split")
 customKeymap("n", "<M-k>", "<C-w>k", "Navigate to the top split")
 customKeymap("n", "<M-l>", "<C-w>l", "Navigate to the right split")
 
+-- Scrolling
+customKeymap("n", "<C-d>", "<C-d>zz", "Scroll windows downwards and centre window")
+customKeymap("n", "<C-u>", "<C-u>zz", "Scroll windows upwards and centre window")
+
+-- Search
+customKeymap("n", "n", "nzzzv", "Repeat search, centre and open fold")
+customKeymap("n", "N", "Nzzzv", "Repeat search backwards, centre and open fold")
+
 -- -- Resize with arrows
 -- customKeymap("n", "<M-Up>", ":resize -2<CR>", "Shrink window horizontally")
 -- customKeymap("n", "<M-Down>", ":resize +2<CR>", "Increase window horizontally")
@@ -74,6 +82,10 @@ customKeymap("i", "jk", "<ESC>", "Better escape")
 -- Stay in indent mode
 customKeymap("v", "<", "<gv", "Indent to the left")
 customKeymap("v", ">", ">gv", "Indent to the right")
+
+-- Moving selected lines
+customKeymap("v", "J", ":m '>+1<CR>gv=gv", "Move selection one down")
+customKeymap("v", "K", ":m '<-2<CR>gv=gv", "Move selection one up")
 
 -- Plugins --
 
@@ -168,6 +180,7 @@ customKeymap("n", "<F41>", "<cmd>lua require'dap'.run_last()<cr>", "Restart") --
 
 -- Lsp
 customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
+customKeymap("n", "<leader>lR", ":LspRestart<CR>", "Restart LSP")
 
 -- Toggleterm
 customKeymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", "Open Toggleterm terminal")
