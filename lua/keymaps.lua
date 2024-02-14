@@ -180,7 +180,9 @@ customKeymap("n", "<F41>", "<cmd>lua require'dap'.run_last()<cr>", "Restart") --
 
 -- Lsp
 customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
-customKeymap("n", "<leader>lR", ":LspRestart<CR>", "Restart LSP")
+customKeymap("n", "<leader>lR", "<CMD>LspRestart<CR>", "Restart LSP")
+customKeymap("n", "<leader>li", "<CMD>LspInfo<CR>", "LSP Info")
+customKeymap("n", "<leader>lI", "<CMD>Mason<CR>", "Mason")
 
 -- Toggleterm
 customKeymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", "Open Toggleterm terminal")
