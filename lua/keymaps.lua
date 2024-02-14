@@ -124,9 +124,7 @@ customKeymap("n", "<leader>gS", "<cmd>lua require('gitsigns').stage_buffer()<cr>
 customKeymap("n", "<leader>gu", "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", "Unstage Git hunk")
 customKeymap("n", "<leader>gd", "<cmd>lua require('gitsigns').diffthis()<cr>", "View Git diff")
 customKeymap("n", "<leader>gj", "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk")
-customKeymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk")
-customKeymap("n", "]g", "<cmd>lua require('gitsigns').next_hunk()", "Next Git hunk")
-customKeymap("n", "[g", "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous Git hunk")
+customKeymap("n", "<leader>gk", "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Prev Hunk")
 
 -- Comment
 customKeymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Toggle comment line")
