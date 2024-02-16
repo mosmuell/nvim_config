@@ -36,6 +36,7 @@ function M.config()
         }
       end
     end,
+    mappings = false,
   }
 end
 
