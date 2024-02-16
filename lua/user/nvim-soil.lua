@@ -6,7 +6,7 @@ M = {
     -- If you want to change default configurations
     require("soil").setup {
       -- If you want to use Plant UML jar version instead of the install version
-      puml_jar = "/home/mose/work/repositories/icon/docs/plantuml-mit-1.2024.3.jar",
+      puml_jar = vim.fn.stdpath "config" .. "/plantuml.jar",
 
       -- If you want to customize the image showed when running this plugin
       image = {
