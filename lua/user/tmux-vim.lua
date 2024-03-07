@@ -9,7 +9,7 @@ function M.config()
   if not status_ok then
     return
   end
-  tmux.setup {
+  tmux.setup({
     -- overwrite default configuration
     -- here, e.g. to enable default bindings
     copy_sync = {
@@ -65,7 +65,7 @@ function M.config()
       -- sets resize steps for y axis
       resize_step_y = 1,
     },
-  }
+  })
 end
 
 return M

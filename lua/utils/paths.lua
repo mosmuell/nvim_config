@@ -19,7 +19,7 @@ M.get_local_venv_dir = function()
 end
 
 M.get_venv_or_local_venv_dir = function()
-  local venv_path = os.getenv "VIRTUAL_ENV" or M.get_local_venv_dir()
+  local venv_path = os.getenv("VIRTUAL_ENV") or M.get_local_venv_dir()
   return venv_path
 end
 

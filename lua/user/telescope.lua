@@ -10,8 +10,8 @@ local M = {
   },
 }
 
-local actions = require "telescope.actions"
-local builtin = require "telescope.builtin"
+local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 
 M.opts = {
   defaults = {
@@ -53,7 +53,7 @@ M.project_files = function(opts)
 
   local cwd = vim.fn.getcwd()
   if is_inside_work_tree[cwd] == nil then
-    vim.fn.system "git rev-parse --is-inside-work-tree"
+    vim.fn.system("git rev-parse --is-inside-work-tree")
     is_inside_work_tree[cwd] = vim.v.shell_error == 0
   end
 

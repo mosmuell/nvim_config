@@ -15,7 +15,7 @@ local M = {
 }
 
 function M.config()
-  local cmp_nvim_lsp = require "cmp_nvim_lsp"
+  local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -39,7 +39,7 @@ function M.config()
     keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   end
 
-  local lspconfig = require "lspconfig"
+  local lspconfig = require("lspconfig")
   local on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
     require("illuminate").on_attach(client)

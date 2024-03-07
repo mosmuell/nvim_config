@@ -11,7 +11,7 @@ local M = {
 }
 
 function M.config()
-  require("dapui").setup {
+  require("dapui").setup({
     expand_lines = false,
     icons = { expanded = "", collapsed = "", circular = "" },
     mappings = {
@@ -51,7 +51,7 @@ function M.config()
         close = { "q", "<Esc>" },
       },
     },
-  }
+  })
 
   vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 end

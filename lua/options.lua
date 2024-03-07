@@ -33,7 +33,7 @@ vim.opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in m
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true -- enable persistent undo
 
 vim.opt.updatetime = 300 -- faster completion (4000ms default)
@@ -47,17 +47,17 @@ vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 vim.opt.fillchars.eob = " " -- show empty lines at the end of a buffer as ` ` {default `~`}
-vim.opt.shortmess:append "c" -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
-vim.opt.whichwrap:append "<,>,[,],h,l" -- keys allowed to move to the previous/next line when the beginning/end of line is reached
-vim.opt.iskeyword:append "-" -- treats words with `-` as single words
-vim.opt.formatoptions:remove { "c", "r", "o" } -- This is a sequence of letters which describes how automatic formatting is to be done
+vim.opt.shortmess:append("c") -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
+vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
+vim.opt.iskeyword:append("-") -- treats words with `-` as single words
+vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
 
 vim.opt.shell = "/usr/bin/zsh"
 
 vim.opt.list = true
-vim.opt.listchars:append "space:⋅" -- Show '⋅' whenever there is a space
-vim.opt.listchars:append "eol:↴" -- Show '↴' whenever there is an end-of-line character
+vim.opt.listchars:append("space:⋅") -- Show '⋅' whenever there is a space
+vim.opt.listchars:append("eol:↴") -- Show '↴' whenever there is an end-of-line character
 
 vim.opt.foldmethod = "expr" -- folding will be done using user-defined expression
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitters foldexpr as user-defined expression

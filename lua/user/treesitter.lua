@@ -15,9 +15,9 @@ local M = {
   },
 }
 function M.config()
-  local configs = require "nvim-treesitter.configs"
+  local configs = require("nvim-treesitter.configs")
 
-  configs.setup {
+  configs.setup({
     ensure_installed = {
       "bash",
       "cpp",
@@ -50,7 +50,7 @@ function M.config()
       enable = true,
       enable_autocmd = false,
     },
-  }
+  })
 end
 
 return M

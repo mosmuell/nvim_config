@@ -1,11 +1,11 @@
 local M = {}
 M.venv_python = function()
-  local paths = require "utils.paths"
+  local paths = require("utils.paths")
   local venv_path = paths.get_venv_or_local_venv_dir()
   if venv_path then
     return venv_path .. "/bin/python"
   end
-  return vim.fn.exepath "python3" or vim.fn.exepath "python" or "python"
+  return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
 --- Derive the full module path based on the file's location
@@ -32,7 +32,7 @@ local get_launchjs_entries = function()
       -- Retrieve the directory in which Neovim was started
       local workspace_folder = vim.fn.getcwd()
       -- Full path to the current file
-      local current_file = vim.fn.expand "%:p"
+      local current_file = vim.fn.expand("%:p")
 
       config.module = M.derive_module_path(current_file, workspace_folder)
     end

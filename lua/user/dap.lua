@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  local dap = require "dap"
+  local dap = require("dap")
 
   local dap_ui_status_ok, dapui = pcall(require, "dapui")
   if not dap_ui_status_ok then
@@ -48,7 +48,7 @@ function M.config()
   dap.adapters = {
     python = {
       type = "executable",
-      command = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python",
+      command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
       args = { "-m", "debugpy.adapter" },
       options = {
         source_filetype = "python",
@@ -59,7 +59,7 @@ function M.config()
       port = "${port}",
       executable = {
         -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
-        command = vim.fn.stdpath "data" .. "/mason/packages/codelldb/codelldb",
+        command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
         args = { "--port", "${port}" },
         -- On windows you may have to uncomment this:
         -- detached = false,
@@ -93,14 +93,14 @@ function M.config()
         name = "Attach remote",
         justMyCode = false,
         host = function()
-          local value = vim.fn.input "Host [127.0.0.1]: "
+          local value = vim.fn.input("Host [127.0.0.1]: ")
           if value ~= "" then
             return value
           end
           return "127.0.0.1"
         end,
         port = function()
-          return tonumber(vim.fn.input "Port [5678]: ") or 5678
+          return tonumber(vim.fn.input("Port [5678]: ")) or 5678
         end,
       },
     },
@@ -146,7 +146,7 @@ function M.config()
           vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/build/" }, function(input)
             path = input
           end)
-          vim.cmd [[redraw]]
+          vim.cmd([[redraw]])
           return path
         end,
         cwd = "${workspaceFolder}",

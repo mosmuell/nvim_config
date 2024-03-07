@@ -5,8 +5,8 @@ local M = {
 }
 
 function M.config()
-  local alpha = require "alpha"
-  local dashboard = require "alpha.themes.dashboard"
+  local alpha = require("alpha")
+  local dashboard = require("alpha.themes.dashboard")
   dashboard.section.header.val = {
     [[                               __                ]],
     [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],

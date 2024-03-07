@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  require("nvim-web-devicons").setup {
+  require("nvim-web-devicons").setup({
     override = {
       zsh = {
         icon = "",
@@ -16,7 +16,7 @@ function M.config()
     },
     color_icons = true,
     default = true,
-  }
+  })
 end
 
 return M

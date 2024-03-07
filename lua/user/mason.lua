@@ -38,18 +38,18 @@ local settings = {
 
 function M.config()
   require("mason").setup(settings)
-  require("mason-lspconfig").setup {
+  require("mason-lspconfig").setup({
     ensure_installed = require("utils").servers,
     automatic_installation = true,
-  }
-  require("mason-nvim-dap").setup {
+  })
+  require("mason-nvim-dap").setup({
     ensure_installed = require("utils").daps,
     automatic_installation = true,
-  }
-  require("mason-null-ls").setup {
+  })
+  require("mason-null-ls").setup({
     -- ensure_installed = require("utils").daps, -- mason-null-ls gets formatters from the null-ls setup sources (see ./null-ls.lua)
     automatic_installation = true,
-  }
+  })
   -- require("mason-nvim-lint").setup {
   --   ensure_installed = require("utils").linters,
   --   automatic_installation = true,

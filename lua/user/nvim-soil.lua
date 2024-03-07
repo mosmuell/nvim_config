@@ -4,9 +4,9 @@ M = {
   ft = "plantuml",
   config = function()
     -- If you want to change default configurations
-    require("soil").setup {
+    require("soil").setup({
       -- If you want to use Plant UML jar version instead of the install version
-      puml_jar = vim.fn.stdpath "config" .. "/plantuml.jar",
+      puml_jar = vim.fn.stdpath("config") .. "/plantuml.jar",
 
       -- If you want to customize the image showed when running this plugin
       image = {
@@ -17,7 +17,7 @@ M = {
           return 0
         end,
       },
-    }
+    })
 
     local customKeymap = require("utils.customKeymap").customKeymap
 
@@ -54,7 +54,7 @@ M = {
       callback = function()
         if vim.g.nvim_soil_feh_pid then
           -- Use a system command to kill the feh process
-          vim.fn.jobstart { "kill", vim.g.nvim_soil_feh_pid }
+          vim.fn.jobstart({ "kill", vim.g.nvim_soil_feh_pid })
           vim.g.nvim_soil_feh_pid = nil -- Clear the PID
         end
       end,
@@ -65,7 +65,7 @@ M = {
 M.generate_image_file = function(format)
   local settings = require("soil").DEFAULTS
   local puml_jar = settings.puml_jar
-  local file_with_extension = vim.fn.expand "%:p"
+  local file_with_extension = vim.fn.expand("%:p")
   format = format or settings.image.format
 
   local args = { "-jar", puml_jar, "-t" .. format, file_with_extension }
@@ -81,7 +81,7 @@ M.generate_image_file = function(format)
     },
     vim.schedule_wrap(function(return_code)
       if return_code ~= 0 then
-        vim.cmd "redraw"
+        vim.cmd("redraw")
         vim.notify("Failed to generate PlantUML SVG", vim.log.levels.ERROR)
       end
     end)
@@ -90,7 +90,7 @@ end
 
 M.open_image = function()
   local settings = require("soil").DEFAULTS
-  local file = vim.fn.expand "%:p:r"
+  local file = vim.fn.expand("%:p:r")
   local image_file = string.format("%s.%s", file, settings.image.format)
 
   if vim.g.nvim_soil_feh_pid == nil then
@@ -104,7 +104,7 @@ M.open_image = function()
       vim.schedule_wrap(function(return_code)
         vim.g.nvim_soil_feh_pid = nil -- Clear the PID
         if return_code ~= 0 then
-          vim.cmd "redraw"
+          vim.cmd("redraw")
           vim.notify("Failed to open PlantUML diagram.", vim.log.levels.ERROR)
         end
       end)
