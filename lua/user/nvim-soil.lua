@@ -45,7 +45,7 @@ M = {
       pattern = { "*.puml" },
       callback = function()
         -- Execute the command to generate PlantUML SVG image
-        M.generate_svg_file()
+        M.generate_image_file()
       end,
     })
 
@@ -62,13 +62,12 @@ M = {
   end,
 }
 
-M.generate_svg_file = function()
+M.generate_image_file = function(format)
   local settings = require("soil").DEFAULTS
   local puml_jar = settings.puml_jar
   local file_with_extension = vim.fn.expand "%:p"
-  local format = settings.image.format
+  format = format or settings.image.format
 
-  local handle
   local args = { "-jar", puml_jar, "-t" .. format, file_with_extension }
   if settings.image.darkmode then
     table.insert(args, "-darkmode")
