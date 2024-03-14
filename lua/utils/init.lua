@@ -1,17 +1,18 @@
 local M = {}
 
 M.servers = {
+  "ansiblels",
+  "bashls",
   "clangd",
-  "lua_ls",
   "cssls",
+  "eslint",
   "html",
-  "tsserver",
+  "jsonls",
+  "lua_ls",
   "pyright",
   "ruff_lsp",
-  "bashls",
-  "jsonls",
+  "tsserver",
   "yamlls",
-  "ansiblels",
 }
 
 M.daps = {
