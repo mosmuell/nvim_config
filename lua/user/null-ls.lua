@@ -36,7 +36,6 @@ function M.config()
   null_ls.setup({
     debug = false,
     sources = {
-      formatting.prettierd.with({ extra_filetypes = { "toml" } }),
       -- formatting.black.with {
       --   command = get_venv_executable "black",
       --   extra_args = { "--fast", "-l 88" },
@@ -45,7 +44,6 @@ function M.config()
       formatting.ruff.with({ command = get_venv_executable("ruff") }),
       formatting.stylua,
       -- formatting.google_java_format,
-      diagnostics.eslint_d,
       diagnostics.ruff.with({ command = get_venv_executable("ruff") }),
       -- diagnostics.flake8.with {
       --   command = get_venv_executable "flake8",
