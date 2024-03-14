@@ -69,7 +69,7 @@ customKeymap("n", "<M-Right>", '<cmd>lua require("tmux").resize_right()<cr>', "R
 customKeymap("n", "<leader>h", "<cmd>nohlsearch<CR>", "Clear highlights")
 
 -- Close buffer
--- customKeymap("n", "<A-q>", "<cmd>Bdelete!<CR>", "Close buffer")
+customKeymap("n", "<A-q>", ":bd<CR>", "Close buffer")
 
 -- Better paste
 customKeymap("v", "p", "P", "Better paste")
