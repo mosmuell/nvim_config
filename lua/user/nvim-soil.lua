@@ -46,6 +46,7 @@ M = {
       callback = function()
         -- Execute the command to generate PlantUML SVG image
         M.generate_image_file()
+        M.generate_image_file("png")
       end,
     })
 
