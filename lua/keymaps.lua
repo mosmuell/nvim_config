@@ -111,6 +111,12 @@ customKeymap(
   "<CMD>lua require('user.telescope').project_files()<CR>",
   "Find project files (respects gitignore)"
 )
+customKeymap(
+  "n",
+  "<leader>fs",
+  "<CMD>lua require('telescope.builtin').grep_string { search = vim.fn.input 'Grep > ' }<CR>",
+  "Find word"
+)
 
 -- Git
 customKeymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit")
