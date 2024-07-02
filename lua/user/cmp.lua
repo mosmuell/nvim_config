@@ -3,20 +3,22 @@ local M = {
   commit = "a110e12d0b58eefcf5b771f533fc2cf3050680ac",
   dependencies = {
     {
-      "hrsh7th/cmp-nvim-lsp",
-      commit = "39e2eda76828d88b773cc27a3f61d2ad782c922d",
+      "hrsh7th/cmp-nvim-lsp", -- language server completion candidates
     },
     {
-      "hrsh7th/cmp-buffer",
-      commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+      "hrsh7th/cmp-buffer", -- source for words of the current buffer
     },
     {
-      "hrsh7th/cmp-path",
-      commit = "91ff86cd9c29299a64f968ebb45846c485725f23",
+      "hrsh7th/cmp-path", -- source for filesystem paths
+    },
+    {
+      "hrsh7th/cmp-nvim-lua", -- source for neovim Lua API
+    },
+    {
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- source for displaying function signatures with the current parameter emphasized
     },
     {
       "hrsh7th/cmp-cmdline",
-      commit = "d250c63aa13ead745e3a40f61fdd3470efde3923",
     },
     {
       "saadparwaiz1/cmp_luasnip",
@@ -30,10 +32,6 @@ local M = {
         "rafamadriz/friendly-snippets",
         commit = "682157939e57bd6a2c86277dfd4d6fbfce63dbac",
       },
-    },
-    {
-      "hrsh7th/cmp-nvim-lua",
-      commit = "f12408bdb54c39c23e67cab726264c10db33ada8",
     },
   },
   event = {
@@ -149,6 +147,7 @@ function M.config()
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
+      { name = "nvim_lsp_signature_help" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -158,9 +157,6 @@ function M.config()
       -- showing box around window
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
-    },
-    experimental = {
-      ghost_text = true,
     },
   })
 end
