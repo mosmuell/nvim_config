@@ -152,6 +152,13 @@ customKeymap(
   "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   "Toggle comment line"
 )
+customKeymap("n", "<C-S-_>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Toggle comment line")
+customKeymap(
+  "x",
+  "<C-S-_>",
+  "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  "Toggle comment line"
+)
 customKeymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Toggle comment line")
 customKeymap(
   "x",
