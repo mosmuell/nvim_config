@@ -6,7 +6,6 @@ local M = {
     {
       "JoosepAlviste/nvim-ts-context-commentstring",
       event = "VeryLazy",
-      commit = "92e688f013c69f90c9bbd596019ec10235bc51de",
     },
     {
       "nvim-tree/nvim-web-devicons",
@@ -16,9 +15,7 @@ local M = {
 }
 
 function M.config()
-  local configs = require("nvim-treesitter.configs")
-
-  configs.setup({
+  require("nvim-treesitter.configs").setup({
     modules = {},
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
     ensure_installed = {
