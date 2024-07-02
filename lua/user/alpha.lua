@@ -1,7 +1,7 @@
 local M = {
   "goolord/alpha-nvim",
   event = "VimEnter",
-  commit = "dafa11a6218c2296df044e00f88d9187222ba6b0",
+  commit = "41283fb402713fc8b327e60907f74e46166f4cfd",
 }
 
 function M.config()

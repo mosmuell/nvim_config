@@ -6,7 +6,7 @@ local M = {
   dependencies = {
     {
       "lunarvim/darkplus.nvim",
-      commit = "7c236649f0617809db05cd30fb10fed7fb01b83b",
+      commit = "c7fff5ce62406121fc6c9e4746f118b2b2499c4c",
     },
   },
 }

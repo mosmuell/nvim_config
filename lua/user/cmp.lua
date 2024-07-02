@@ -1,10 +1,10 @@
 local M = {
   "hrsh7th/nvim-cmp",
-  commit = "cfafe0a1ca8933f7b7968a287d39904156f2c57d",
+  commit = "a110e12d0b58eefcf5b771f533fc2cf3050680ac",
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp",
-      commit = "0e6b2ed705ddcff9738ec4ea838141654f12eeef",
+      commit = "39e2eda76828d88b773cc27a3f61d2ad782c922d",
     },
     {
       "hrsh7th/cmp-buffer",
@@ -16,24 +16,24 @@ local M = {
     },
     {
       "hrsh7th/cmp-cmdline",
-      commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063",
+      commit = "d250c63aa13ead745e3a40f61fdd3470efde3923",
     },
     {
       "saadparwaiz1/cmp_luasnip",
-      commit = "18095520391186d634a0045dacaa346291096566",
+      commit = "05a9ab28b53f71d1aece421ef32fee2cb857a843",
     },
     {
       "L3MON4D3/LuaSnip",
-      commit = "9bff06b570df29434a88f9c6a9cea3b21ca17208",
+      commit = "ce0a05ab4e2839e1c48d072c5236cce846a387bc",
       event = "InsertEnter",
       dependencies = {
         "rafamadriz/friendly-snippets",
-        commit = "a6f7a1609addb4e57daa6bedc300f77f8d225ab7",
+        commit = "682157939e57bd6a2c86277dfd4d6fbfce63dbac",
       },
     },
     {
       "hrsh7th/cmp-nvim-lua",
-      commit = "f3491638d123cfd2c8048aefaf66d246ff250ca6",
+      commit = "f12408bdb54c39c23e67cab726264c10db33ada8",
     },
   },
   event = {
@@ -52,6 +52,7 @@ function M.config()
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
   end
 
+  -- used to format the completion text (using icons instead of text)
   local kind_icons = {
     Text = "󰉿",
     Method = "m",
@@ -153,6 +154,7 @@ function M.config()
       select = false,
     },
     window = {
+      -- showing box around window
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
