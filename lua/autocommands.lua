@@ -38,12 +38,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-  callback = function()
-    vim.cmd("hi LspReferenceText guibg=#323232")
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "markdown" },
   callback = function()

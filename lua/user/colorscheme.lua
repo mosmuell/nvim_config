@@ -14,8 +14,19 @@ local M = {
 M.name = "darkplus"
 function M.config()
   local status_ok, _ = pcall(vim.cmd.colorscheme, M.name)
+
   if not status_ok then
     return
+  end
+
+  if M.name == "darkplus" then
+    -- Defining the Group colours manually
+    local hl = vim.api.nvim_set_hl
+
+    -- You can use `:Inspect` to show the highlight groups under the cursor
+    hl(0, "@keyword.import", { link = "Include" })
+    hl(0, "@attribute.builtin.python", { link = "PreProc" })
+    hl(0, "@keyword.coroutine.python", { link = "Keyword" })
   end
 end
 
