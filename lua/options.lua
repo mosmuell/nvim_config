@@ -61,4 +61,5 @@ vim.opt.listchars:append("eol:↴") -- Show '↴' whenever there is an end-of-li
 
 vim.opt.foldmethod = "expr" -- folding will be done using user-defined expression
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitters foldexpr as user-defined expression
+vim.opt.foldenable = false
 vim.opt.colorcolumn = "88"
