@@ -196,6 +196,12 @@ customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>
 customKeymap("n", "<leader>lR", "<CMD>LspRestart<CR>", "Restart LSP")
 customKeymap("n", "<leader>li", "<CMD>LspInfo<CR>", "LSP Info")
 customKeymap("n", "<leader>lI", "<CMD>Mason<CR>", "Mason")
+customKeymap(
+  "n",
+  "<leader>lh",
+  "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
+  "Toggle Inlay Hint"
+)
 
 -- Toggleterm
 customKeymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", "Open Toggleterm terminal")

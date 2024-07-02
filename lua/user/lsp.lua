@@ -40,6 +40,10 @@ function M.config()
 
   local lspconfig = require("lspconfig")
   local on_attach = function(client, bufnr)
+    -- enable inlay hints
+    if vim.lsp.inlay_hint then
+      vim.lsp.inlay_hint.enable(true, { 0 })
+    end
     if client.name == "tsserver" then
       client.server_capabilities.documentFormattingProvider = false -- do not format with tsserver
     elseif client.name == "eslint" then
