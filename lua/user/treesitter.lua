@@ -1,6 +1,6 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
-  commit = "649d137371e9214d30b20565e0574824fa3a3670",
+  commit = "e0d6c7643dc953acc2e817d0cebfc2f1f8c008e1",
   event = "BufReadPost",
   dependencies = {
     {
@@ -14,10 +14,13 @@ local M = {
     },
   },
 }
+
 function M.config()
   local configs = require("nvim-treesitter.configs")
 
   configs.setup({
+    modules = {},
+    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
     ensure_installed = {
       "bash",
       "cpp",
@@ -34,16 +37,21 @@ function M.config()
       "yaml",
     }, -- put the language you want in this array
     -- ensure_installed = "all", -- one of "all" or a list of languages
+
+    -- Automatically install missing parsers when entering buffer
+    auto_install = true,
+
     ignore_install = { "" }, -- List of parsers to ignore installing
-    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 
     highlight = {
       enable = true, -- false will disable the whole extension
       disable = {}, -- list of language that will be disabled
     },
+
     autopairs = {
       enable = true,
     },
+
     indent = { enable = true, disable = { "css" } },
 
     context_commentstring = {
