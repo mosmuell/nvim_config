@@ -6,6 +6,7 @@ M.servers = {
   "clangd",
   "cssls",
   "eslint",
+  "gopls",
   "html",
   "jsonls",
   "lua_ls",
