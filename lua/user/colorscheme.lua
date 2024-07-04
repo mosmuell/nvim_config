@@ -19,11 +19,12 @@ function M.config()
     return
   end
 
-  if M.name == "darkplus" then
-    -- Defining the Group colours manually
-    local hl = vim.api.nvim_set_hl
+  -- Defining the Group colours manually
+  -- You can use `:Inspect` to show the highlight groups under the cursor
+  local hl = vim.api.nvim_set_hl
+  hl(0, "Directory", { fg = "#42a5f5", bg = "NONE" })
 
-    -- You can use `:Inspect` to show the highlight groups under the cursor
+  if M.name == "darkplus" then
     hl(0, "@keyword.import", { link = "Include" })
     hl(0, "@attribute.builtin.python", { link = "PreProc" })
     hl(0, "@keyword.coroutine.python", { link = "Keyword" })
