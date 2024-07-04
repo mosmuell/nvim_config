@@ -23,6 +23,7 @@ function M.config()
   -- You can use `:Inspect` to show the highlight groups under the cursor
   local hl = vim.api.nvim_set_hl
   hl(0, "Directory", { fg = "#42a5f5", bg = "NONE" })
+  hl(0, "NvimTreeOpenedFolderName", { fg = "#42a5f5", bg = "NONE", bold = true, italic = true })
 
   if M.name == "darkplus" then
     hl(0, "@keyword.import", { link = "Include" })
