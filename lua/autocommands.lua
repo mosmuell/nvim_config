@@ -39,14 +39,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "markdown" },
+  pattern = { "cpp", "c", "javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "markdown" },
   callback = function()
     vim.cmd("setlocal shiftwidth=2")
   end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "python", "cpp", "c" },
+  pattern = { "python" },
   callback = function()
     vim.cmd("setlocal shiftwidth=4")
   end,
