@@ -21,9 +21,10 @@ function M.config()
     ensure_installed = {
       "bash",
       "cpp",
+      "go",
       "html",
       "javascript",
-      "json",
+      "jsonc",
       "lua",
       "markdown",
       "markdown_inline",
@@ -32,7 +33,7 @@ function M.config()
       "typescript",
       "tsx",
       "yaml",
-    }, -- put the language you want in this array
+    },
     -- ensure_installed = "all", -- one of "all" or a list of languages
 
     -- Automatically install missing parsers when entering buffer
