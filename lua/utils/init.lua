@@ -19,6 +19,7 @@ M.servers = {
 M.daps = {
   "python",
   "codelldb",
+  "go-debug-adapter",
 }
 
 M.formatters = {
