@@ -20,6 +20,7 @@ M.daps = {
   "python",
   "codelldb",
   "go-debug-adapter",
+  "firefox",
 }
 
 M.formatters = {

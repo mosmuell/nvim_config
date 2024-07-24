@@ -65,6 +65,11 @@ function M.config()
         -- detached = false,
       },
     },
+    firefox = {
+      type = "executable",
+      command = "node",
+      args = { vim.fn.stdpath("data") .. "/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js" },
+    },
   }
   dap.configurations = {
     python = {
@@ -102,6 +107,21 @@ function M.config()
         port = function()
           return tonumber(vim.fn.input("Port [5678]: ")) or 5678
         end,
+      },
+    },
+    typescriptreact = {
+      {
+        name = "Debug with Firefox (port 5173)",
+        type = "firefox",
+        request = "launch",
+        reAttach = true,
+        url = "http://localhost:5173",
+        webRoot = function()
+          return vim.fn.input("Path to web root: ", vim.fn.getcwd() .. "/frontend", "dir")
+        end,
+        firefoxExecutable = "/usr/bin/firefox",
+        profileDir = os.getenv("HOME") .. "/.mozilla/firefox/debug_profile", -- Firefox debug profile (you have to create this yourself in about:profiles)
+        keepProfileChanges = true, -- Keep changes like "devtools.debugger.features.overlay = False"
       },
     },
     cpp = {
