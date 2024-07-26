@@ -6,7 +6,7 @@ M.servers = {
   "clangd",
   "cssls",
   "eslint",
-  "gopls",
+  -- "gopls",
   "html",
   "jsonls",
   "lua_ls",
@@ -19,8 +19,8 @@ M.servers = {
 M.daps = {
   "python",
   "codelldb",
-  "go-debug-adapter",
-  "firefox",
+  -- "go-debug-adapter",
+  -- "firefox",
 }
 
 M.formatters = {
