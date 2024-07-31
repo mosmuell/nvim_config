@@ -8,7 +8,7 @@ local M = {
       "hrsh7th/cmp-nvim-lsp",
     },
     {
-      "folke/neodev.nvim",
+      "folke/lazydev.nvim",
     },
   },
 }
