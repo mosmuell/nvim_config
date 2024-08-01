@@ -94,7 +94,12 @@ function M.config()
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
       { name = "buffer" },
-      { name = "path" },
+      {
+        name = "path",
+        option = {
+          trailing_slash = true,
+        },
+      },
       { name = "nvim_lsp_signature_help" },
       {
         name = "lazydev",
@@ -120,9 +125,18 @@ function M.config()
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
+      {
+        name = "path",
+        option = {
+          trailing_slash = true,
+        },
+      },
+      {
+        name = 'cmdline',
+        option = {
+          treat_trailing_slash = false,
+        }
+      }
     }),
     matching = { disallow_symbol_nonprefix_matching = false }
   })
