@@ -28,6 +28,12 @@ end
 --Remap space as leader key
 customKeymap("", "<Space>", "<Nop>", "Leader key")
 
+-- Categories
+customKeymap("n", "<leader>d", "<Nop>", "Debug")
+customKeymap("n", "<leader>f", "<Nop>", "Telescope")
+customKeymap("n", "<leader>g", "<Nop>", "Git")
+customKeymap("n", "<leader>l", "<Nop>", "LSP")
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
