@@ -1,11 +1,10 @@
 local M = {
   "numToStr/Comment.nvim",
   commit = "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
-  event = { "BufRead", "BufNewFile" },
+  lazy = true, -- this is possible as no keybindings are set through Comment.nvim. Otherwise, you have to load it.
   dependencies = {
     {
       "JoosepAlviste/nvim-ts-context-commentstring",
-      event = "VeryLazy",
       commit = "6b5f95aa4d24f2c629a74f2c935c702b08dbde62",
     },
   },
