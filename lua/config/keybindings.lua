@@ -1,15 +1,3 @@
-local customKeymap = function(mode, lhs, rhs, description)
-  local opts = { noremap = true, silent = true }
-  local customOpts = {}
-  for k, v in pairs(opts) do
-    customOpts[k] = v
-  end
-  if description then
-    customOpts.desc = description
-  end
-  vim.keymap.set(mode, lhs, rhs, customOpts)
-end
-
 -----------------------------|
 --- Mapping function keys ---|
 -----------------------------|
@@ -24,6 +12,8 @@ end
 -- Note that those keybindings don't work for `xterm` which uses different
 -- modifiers (see https://www.xfree86.org/current/ctlseqs.html).
 -----------------------------|
+
+local customKeymap = require("utils.customKeymap")
 
 --Remap space as leader key
 customKeymap("", "<Space>", "<Nop>", "Leader key")
