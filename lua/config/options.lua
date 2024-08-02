@@ -59,6 +59,7 @@ vim.opt.listchars:append("space:⋅") -- Show '⋅' whenever there is a space
 vim.opt.listchars:append("eol:↴") -- Show '↴' whenever there is an end-of-line character
 
 vim.opt.foldmethod = "expr" -- folding will be done using user-defined expression
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitters foldexpr as user-defined expression
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- use treesitters foldexpr as user-defined expression
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.foldenable = false
 vim.opt.colorcolumn = "88"
