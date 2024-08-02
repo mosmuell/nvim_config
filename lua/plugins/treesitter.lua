@@ -5,12 +5,6 @@ local M = {
   build = function()
       require("nvim-treesitter.install").update({ with_sync = true })()
   end,
-  dependencies = {
-    {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      event = "VeryLazy",
-    },
-  },
 }
 
 function M.config()

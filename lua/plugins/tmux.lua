@@ -1,7 +1,7 @@
 local M = {
   "aserowy/tmux.nvim",
   commit = "673782b74a6055d430d3f5148a033edd99e5519f",
-  event = "Bufenter",
+  event = "VeryLazy",
   opts = {
     -- overwrite default configuration
     -- here, e.g. to enable default bindings
