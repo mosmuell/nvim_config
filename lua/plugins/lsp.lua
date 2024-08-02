@@ -78,6 +78,16 @@ function M.config()
       client.server_capabilities.documentFormattingProvider = true
     end
     lsp_keymaps(bufnr)
+
+    -- refresh codelens on TextChanged and InsertLeave as well
+    vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+        buffer = bufnr,
+        callback = function ()
+          if client.supports_method("textDocument/codeLens") then
+            vim.lsp.codelens.refresh({ bufnr = bufnr })
+          end
+        end
+    })
   end
 
   for _, server in pairs(M.lsp_servers) do
