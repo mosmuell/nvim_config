@@ -44,10 +44,10 @@ customKeymap("n", "<leader>l", "<Nop>", "LSP")
 
 -- Normal --
 -- Better window navigation
-customKeymap("n", "<M-h>", "<C-w>h", "Navigate to the left split")
-customKeymap("n", "<M-j>", "<C-w>j", "Navigate to the bottom split")
-customKeymap("n", "<M-k>", "<C-w>k", "Navigate to the top split")
-customKeymap("n", "<M-l>", "<C-w>l", "Navigate to the right split")
+-- customKeymap("n", "<M-h>", "<C-w>h", "Navigate to the left split")key
+-- customKeymap("n", "<M-j>", "<C-w>j", "Navigate to the bottom split")
+-- customKeymap("n", "<M-k>", "<C-w>k", "Navigate to the top split")
+-- customKeymap("n", "<M-l>", "<C-w>l", "Navigate to the right split")
 
 -- Scrolling
 customKeymap("n", "<C-d>", "<C-d>zz", "Scroll windows downwards and centre window")
