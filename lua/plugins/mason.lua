@@ -36,8 +36,7 @@ function M.config()
 
   require("mason").setup(settings)
   require("mason-lspconfig").setup({
-    -- ensure_installed = require("lsp").lsp_servers,
-    automatic_installation = true,
+    ensure_installed = require("plugins.lsp").lsp_servers,
   })
   -- require("mason-nvim-dap").setup({
   --   -- ensure_installed = require("utils").daps,
