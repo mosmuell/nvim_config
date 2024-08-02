@@ -17,7 +17,6 @@ local M = {
   "neovim/nvim-lspconfig",
   commit = "e9b1c95d29ca9e479fc39896b31d24eed96b40a3",
   lazy = false,
-  -- event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in language server client
