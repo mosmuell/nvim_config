@@ -58,7 +58,7 @@ local M = {
       -- sets resize steps for y axis
       resize_step_y = 1,
     },
-  }
+  },
 }
 
 return M

@@ -12,9 +12,9 @@ local M = {
 
 function M.config()
   local comment = require("Comment")
-  require('ts_context_commentstring').setup {
+  require("ts_context_commentstring").setup({
     enable_autocmd = false,
-  }
+  })
   comment.setup({
     ---Function to call before (un)comment
     pre_hook = function(ctx)
@@ -50,26 +50,26 @@ function M.config()
     mappings = false,
     ---LHS of toggle mappings in NORMAL mode
     toggler = {
-        ---Line-comment toggle keymap
-        line = 'gcc',
-        ---Block-comment toggle keymap
-        block = 'gbc',
+      ---Line-comment toggle keymap
+      line = "gcc",
+      ---Block-comment toggle keymap
+      block = "gbc",
     },
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
-        ---Line-comment keymap
-        line = 'gc',
-        ---Block-comment keymap
-        block = 'gb',
+      ---Line-comment keymap
+      line = "gc",
+      ---Block-comment keymap
+      block = "gb",
     },
     ---LHS of extra mappings
     extra = {
-        ---Add comment on the line above
-        above = 'gcO',
-        ---Add comment on the line below
-        below = 'gco',
-        ---Add comment at the end of line
-        eol = 'gcA',
+      ---Add comment on the line above
+      above = "gcO",
+      ---Add comment on the line below
+      below = "gco",
+      ---Add comment at the end of line
+      eol = "gcA",
     },
     ---Function to call after (un)comment
     post_hook = nil,

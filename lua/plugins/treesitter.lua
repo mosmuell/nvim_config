@@ -3,7 +3,7 @@ local M = {
   commit = "e0d6c7643dc953acc2e817d0cebfc2f1f8c008e1",
   lazy = false,
   build = function()
-      require("nvim-treesitter.install").update({ with_sync = true })()
+    require("nvim-treesitter.install").update({ with_sync = true })()
   end,
 }
 
@@ -41,7 +41,7 @@ function M.config()
 
     indent = {
       enable = true,
-      disable = { "css" } 
+      disable = { "css" },
     },
   })
 end

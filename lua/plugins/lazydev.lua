@@ -14,7 +14,7 @@ local M = {
       "Bilal2453/luvit-meta",
       commit = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60",
     }, -- optional `vim.uv` typings
-  }
+  },
 }
 
 return M

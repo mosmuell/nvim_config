@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
- -- display lines as one long line when in gitcommit or markdown
+-- display lines as one long line when in gitcommit or markdown
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()

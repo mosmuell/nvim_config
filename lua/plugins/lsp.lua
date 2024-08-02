@@ -11,7 +11,7 @@ primary functionalities:
    under a tracked project
  - utility commands such as LspInfo, LspStart, LspStop, and LspRestart for
    managing language server instances
-]]--
+]]
 
 local M = {
   "neovim/nvim-lspconfig",
@@ -80,13 +80,13 @@ function M.config()
     lsp_keymaps(bufnr)
 
     -- refresh codelens on TextChanged and InsertLeave as well
-    vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
-        buffer = bufnr,
-        callback = function ()
-          if client.supports_method("textDocument/codeLens") then
-            vim.lsp.codelens.refresh({ bufnr = bufnr })
-          end
+    vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+      buffer = bufnr,
+      callback = function()
+        if client.supports_method("textDocument/codeLens") then
+          vim.lsp.codelens.refresh({ bufnr = bufnr })
         end
+      end,
     })
   end
 

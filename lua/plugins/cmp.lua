@@ -36,18 +36,18 @@ local M = {
         commit = "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4",
       },
     },
-  }
+  },
 }
 
 function M.config()
-  local cmp = require('cmp')
+  local cmp = require("cmp")
   local luasnip = require("luasnip")
 
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
         -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
@@ -59,11 +59,11 @@ function M.config()
       documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-Space>"] = cmp.mapping.complete(),
       -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-      ['<C-e>'] = cmp.mapping.abort(),
+      ["<C-e>"] = cmp.mapping.abort(),
       -- ["<C-e>"] = cmp.mapping({
       --   i = cmp.mapping.abort(),
       --   c = cmp.mapping.close(),
@@ -89,7 +89,7 @@ function M.config()
           fallback()
         end
       end, { "i", "s" }),
-      }),
+    }),
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
@@ -105,24 +105,23 @@ function M.config()
         name = "lazydev",
         group_index = 0, -- set group index to 0 to skip loading LuaLS completions
       },
-      { name = 'luasnip' }, -- For luasnip users.
+      { name = "luasnip" }, -- For luasnip users.
       -- { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
-    }, {
-    })
+    }, {}),
   })
 
   -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
+  cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
-    }
+      { name = "buffer" },
+    },
   })
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
+  cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
       {
@@ -132,15 +131,14 @@ function M.config()
         },
       },
       {
-        name = 'cmdline',
+        name = "cmdline",
         option = {
           treat_trailing_slash = false,
-        }
-      }
+        },
+      },
     }),
-    matching = { disallow_symbol_nonprefix_matching = false }
+    matching = { disallow_symbol_nonprefix_matching = false },
   })
-
 end
 
 return M

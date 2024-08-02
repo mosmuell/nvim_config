@@ -18,9 +18,9 @@ local M = {
         },
         color_icons = true,
         default = true,
-      }
+      },
     },
-  }
+  },
 }
 
 M.name = "darkplus"
