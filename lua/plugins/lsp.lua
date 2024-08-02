@@ -35,7 +35,7 @@ M.lsp_servers = {
   "jsonls",
   "lua_ls",
   "pyright",
-  "ruff_lsp",
+  "ruff",
   "tsserver",
   "yamlls",
 }
