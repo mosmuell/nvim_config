@@ -6,9 +6,6 @@ local M = {
     {
       'nvim-lua/plenary.nvim'
     },
-    -- {
-    --   "ahmedkhalf/project.nvim",
-    -- },
   },
 }
 
