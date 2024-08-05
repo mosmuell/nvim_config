@@ -41,10 +41,10 @@ function M.config()
   --   -- ensure_installed = require("utils").daps,
   --   automatic_installation = true,
   -- })
-  -- require("mason-null-ls").setup({
-  --   -- ensure_installed = require("utils").daps, -- mason-null-ls gets formatters from the null-ls setup sources (see ./null-ls.lua)
-  --   automatic_installation = true,
-  -- })
+  require("mason-null-ls").setup({
+    ensure_installed = require("plugins.null-ls").formatters_and_linters, -- mason-null-ls gets formatters from the null-ls setup sources (see ./null-ls.lua)
+    automatic_installation = false,
+  })
 end
 
 return M

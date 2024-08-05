@@ -1,6 +1,6 @@
 local M = {
   "nvimtools/none-ls.nvim",
-  event = "BufReadPre",
+  event = "VeryLazy",
   commit = "cfa65d86e21eeb60544d5e823f6db43941322a53",
   dependencies = {
     {
@@ -10,6 +10,14 @@ local M = {
       "nvimtools/none-ls-extras.nvim",
     },
   },
+}
+
+M.formatters_and_linters = {
+  "ansiblelint",
+  "cpplint",
+  "mypy",
+  "stylua",
+  "ruff",
 }
 
 function M.config()
@@ -22,13 +30,15 @@ function M.config()
   null_ls.setup({
     debug = true,
     sources = {
-      require("none-ls.formatting.ruff").with({ command = require("utils.paths").get_venv_executable("ruff") }),
+      -- configuring binaries: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#using-local-executables
+      require("none-ls.formatting.ruff"),
+      -- require("none-ls.formatting.ruff").with({ command = require("utils.paths").get_venv_executable("ruff") }),
       formatting.stylua,
       diagnostics.ansiblelint,
       diagnostics.mypy.with({
         command = require("utils.paths").get_venv_executable("mypy"),
       }),
-      diagnostics.cpplint,
+      require("none-ls.diagnostics.cpplint"),
     },
   })
 end
