@@ -36,7 +36,25 @@ function M.config()
       formatting.stylua,
       diagnostics.ansiblelint,
       diagnostics.mypy.with({
-        command = require("utils.paths").get_venv_executable("mypy"),
+        -- command = require("utils.paths").get_venv_executable("mypy"),
+        -- Fixing mypy when opening new file (https://github.com/nvimtools/none-ls.nvim/issues/97)
+        args = function(params)
+          return {
+            "--hide-error-codes",
+            "--hide-error-context",
+            "--no-color-output",
+            "--show-absolute-path",
+            "--show-column-numbers",
+            "--show-error-codes",
+            "--no-error-summary",
+            "--no-pretty",
+            params.temp_path,
+          }
+        end,
+        on_output = function(line, params)
+          line = line:gsub(params.temp_path:gsub("([^%w])", "%%%1"), params.bufname)
+          return null_ls.builtins.diagnostics.mypy._opts.on_output(line, params)
+        end,
       }),
       require("none-ls.diagnostics.cpplint"),
     },
