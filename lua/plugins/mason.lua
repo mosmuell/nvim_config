@@ -37,10 +37,10 @@ function M.config()
   require("mason-lspconfig").setup({
     ensure_installed = require("plugins.lsp").lsp_servers,
   })
-  -- require("mason-nvim-dap").setup({
-  --   -- ensure_installed = require("utils").daps,
-  --   automatic_installation = true,
-  -- })
+  require("mason-nvim-dap").setup({
+    ensure_installed = require("plugins.dap").daps,
+    automatic_installation = false,
+  })
   require("mason-null-ls").setup({
     ensure_installed = require("plugins.null-ls").formatters_and_linters, -- mason-null-ls gets formatters from the null-ls setup sources (see ./null-ls.lua)
     automatic_installation = false,

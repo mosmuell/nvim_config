@@ -164,7 +164,7 @@ customKeymap(
 -- DAP
 customKeymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint")
 customKeymap("n", "<leader>de", "<cmd>lua require('dapui').eval()<cr>", "Evaluate expression")
-customKeymap("n", "<leader>dc", "<cmd>lua require'utils.dap-utils'.launch_or_continue()<cr>", "Continue")
+customKeymap("n", "<leader>dc", "<cmd>lua require'plugins.dap'.launch_or_continue()<cr>", "Continue")
 customKeymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
 customKeymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
 customKeymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", "Step out")
@@ -176,7 +176,7 @@ customKeymap("n", "<leader>du", "<cmd>lua require'dap'.up()<cr>", "Go up in stac
 customKeymap("n", "<leader>dd", "<cmd>lua require'dap'.down()<cr>", "Go down in stack trace")
 customKeymap("n", "<leader>dR", "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor")
 customKeymap("n", "<leader>dg", "<cmd>lua require'dap'.session()<cr>", "Get Session")
-customKeymap("n", "<F5>", "<cmd>lua require'utils.dap-utils'.launch_or_continue()<cr>", "Continue")
+customKeymap("n", "<F5>", "<cmd>lua require'plugins.dap'.launch_or_continue()<cr>", "Continue")
 customKeymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint")
 customKeymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
 customKeymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
