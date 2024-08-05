@@ -31,12 +31,12 @@ function M.config()
     debug = true,
     sources = {
       -- configuring binaries: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#using-local-executables
-      require("none-ls.formatting.ruff"),
-      -- require("none-ls.formatting.ruff").with({ command = require("utils.paths").get_venv_executable("ruff") }),
+      -- require("none-ls.formatting.ruff"),
+      require("none-ls.formatting.ruff").with({ command = require("utils.paths").get_venv_executable("ruff") }),
       formatting.stylua,
       diagnostics.ansiblelint,
       diagnostics.mypy.with({
-        -- command = require("utils.paths").get_venv_executable("mypy"),
+        command = require("utils.paths").get_venv_executable("mypy"),
         -- Fixing mypy when opening new file (https://github.com/nvimtools/none-ls.nvim/issues/97)
         args = function(params)
           return {
