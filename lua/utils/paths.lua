@@ -52,4 +52,13 @@ M.get_venv_executable = function(executable)
 
   return venv_executable_path
 end
+
+M.venv_python = function()
+  local venv_path = M.get_venv_or_local_venv_dir()
+  if venv_path then
+    return venv_path .. "/bin/python"
+  end
+  return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
+end
+
 return M
