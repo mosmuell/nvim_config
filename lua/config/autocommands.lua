@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Automatically close tab/vim when nvim-tree is the last window in the tab
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+-- vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
 -- make all windows the same height & width on each tab on VimResized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
