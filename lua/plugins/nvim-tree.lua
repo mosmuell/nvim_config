@@ -1,7 +1,7 @@
 local M = {
   "kyazdani42/nvim-tree.lua",
   commit = "48d0e82f9434691cc50d970898142a8c084a49d6",
-  event = "VimEnter",
+  event = "VeryLazy",
 }
 
 local function change_root_to_global_cwd()
