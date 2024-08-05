@@ -3,24 +3,6 @@ local M = {
   commit = "c7fff5ce62406121fc6c9e4746f118b2b2499c4c",
   lazy = false,
   priority = 1000, -- make sure to load this before all the other start plugins
-  dependencies = {
-    {
-      "nvim-tree/nvim-web-devicons",
-      event = "VeryLazy",
-      opts = {
-        override = {
-          zsh = {
-            icon = "",
-            color = "#428850",
-            cterm_color = "65",
-            name = "Zsh",
-          },
-        },
-        color_icons = true,
-        default = true,
-      },
-    },
-  },
 }
 
 M.name = "darkplus"
