@@ -90,56 +90,53 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<C-c>", change_root_to_global_cwd, opts("Change Root To Global CWD"))
 end
 
-function M.config()
-  -- local tree_cb = require("nvim-tree.config").nvim_tree_callback
-  require("nvim-tree").setup({
-    on_attach = on_attach,
-    update_focused_file = {
-      enable = true,
-      update_root = false,
-    },
-    renderer = {
-      icons = {
-        glyphs = {
-          default = "",
-          symlink = "",
-          folder = {
-            arrow_open = "",
-            arrow_closed = "",
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
-            symlink = "",
-            symlink_open = "",
-          },
-          git = {
-            unstaged = "",
-            staged = "S",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "U",
-            deleted = "",
-            ignored = "◌",
-          },
+M.opts = {
+  on_attach = on_attach,
+  update_focused_file = {
+    enable = true,
+    update_root = false,
+  },
+  renderer = {
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        folder = {
+          arrow_open = "",
+          arrow_closed = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "U",
+          deleted = "",
+          ignored = "◌",
         },
       },
     },
-    diagnostics = {
-      enable = true,
-      show_on_dirs = true,
-      icons = {
-        hint = "󰌵",
-        info = "",
-        warning = "",
-        error = "",
-      },
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "󰌵",
+      info = "",
+      warning = "",
+      error = "",
     },
-    view = {
-      width = 30,
-      side = "left",
-    },
-  })
-end
+  },
+  view = {
+    width = 30,
+    side = "left",
+  },
+}
 
 return M
