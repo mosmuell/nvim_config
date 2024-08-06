@@ -1,6 +1,7 @@
 return {
   init_options = {
     settings = {
+      configurationPreference = "filesystemFirst",
       lineLength = 88,
       fixAll = true,
       organizeImports = true,
@@ -16,10 +17,10 @@ return {
       },
       lint = {
         enable = true,
-        preview = true,
+        preview = false,
       },
       format = {
-        preview = true,
+        preview = false,
       },
     },
   },

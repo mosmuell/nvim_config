@@ -33,6 +33,7 @@ function M.config()
       -- configuring binaries: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#using-local-executables
       -- require("none-ls.formatting.ruff"),
       require("none-ls.formatting.ruff").with({ command = require("utils.paths").get_venv_executable("ruff") }),
+      -- require("none-ls.diagnostics.ruff").with({ command = require("utils.paths").get_venv_executable("ruff") }), -- using ruff server for this
       formatting.stylua,
       diagnostics.ansiblelint,
       diagnostics.mypy.with({
