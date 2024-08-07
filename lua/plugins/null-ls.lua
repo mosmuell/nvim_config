@@ -27,6 +27,12 @@ function M.config()
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
   local diagnostics = null_ls.builtins.diagnostics
 
+  vim.api.nvim_create_user_command("NullLsRestart", function()
+    -- you can also create commands to disable or enable sources
+    require("null-ls").toggle({})
+    require("null-ls").toggle({})
+  end, {})
+
   null_ls.setup({
     debug = true,
     sources = {
