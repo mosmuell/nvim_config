@@ -2,6 +2,11 @@ local M = {
   "mfussenegger/nvim-dap",
   commit = "6f79b822997f2e8a789c6034e147d42bc6706770",
   event = "VeryLazy",
+  dependencies = {
+    {
+      "mfussenegger/nvim-dap-python",
+    },
+  },
 }
 
 M.daps = {
@@ -41,14 +46,6 @@ function M.config()
   end
 
   dap.adapters = {
-    python = {
-      type = "executable",
-      command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
-      args = { "-m", "debugpy.adapter" },
-      options = {
-        source_filetype = "python",
-      },
-    },
     codelldb = {
       type = "server",
       port = "${port}",
@@ -67,41 +64,6 @@ function M.config()
     },
   }
   dap.configurations = {
-    python = {
-      {
-        name = "Python: Run Current File as Module",
-        type = "python",
-        request = "launch",
-        module = "${fileAsModule}", -- self-defined variable. See get_launchjs_entries()
-        console = "internalConsole",
-        cwd = "${workspaceFolder}",
-        justMyCode = false,
-      },
-      {
-        type = "python",
-        request = "launch",
-        name = "Python: Launch Current File as Program",
-        justMyCode = false,
-        program = "${file}",
-        console = "internalConsole", -- other options: internalTerminal, externalTerminal
-      },
-      {
-        type = "python",
-        request = "attach",
-        name = "Attach remote",
-        justMyCode = false,
-        host = function()
-          local value = vim.fn.input("Host [127.0.0.1]: ")
-          if value ~= "" then
-            return value
-          end
-          return "127.0.0.1"
-        end,
-        port = function()
-          return tonumber(vim.fn.input("Port [5678]: ")) or 5678
-        end,
-      },
-    },
     typescriptreact = {
       {
         name = "Debug with Firefox (port 5173)",
@@ -184,6 +146,18 @@ function M.config()
   -- dap.listeners.before.event_exited["dapui_config"] = function()
   --   dapui.close()
   -- end
+
+  require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
+
+  table.insert(dap.configurations.python, {
+    name = "Python: Run Current File as Module",
+    type = "python",
+    request = "launch",
+    module = "${fileAsModule}", -- self-defined variable. See get_launchjs_entries()
+    console = "integratedTerminal",
+    cwd = "${workspaceFolder}",
+    justMyCode = false,
+  })
 end
 
 --- Derive the full module path based on the file's location
