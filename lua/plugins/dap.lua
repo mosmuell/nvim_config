@@ -154,7 +154,7 @@ function M.config()
     type = "python",
     request = "launch",
     module = "${fileAsModule}", -- self-defined variable. See get_launchjs_entries()
-    console = "integratedTerminal",
+    console = "integratedTerminal", -- possible: "internalConsole"|"integratedTerminal"|"externalTerminal"
     cwd = "${workspaceFolder}",
     justMyCode = false,
   })
@@ -194,7 +194,9 @@ local get_launchjs_entries = function()
 end
 
 M.launch_or_continue = function()
-  get_launchjs_entries()
+  if not require("dap").session() then
+    get_launchjs_entries()
+  end
   require("dap").continue()
 end
 
