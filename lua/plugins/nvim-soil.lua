@@ -45,7 +45,7 @@ M = {
       pattern = { "*.puml" },
       callback = function()
         -- Execute the command to generate PlantUML SVG image
-        M.generate_image_file()
+        M.generate_image_file("svg")
         M.generate_image_file("png")
       end,
     })
@@ -97,9 +97,9 @@ M.open_image = function()
   if vim.g.nvim_soil_feh_pid == nil then
     local handle
     handle = vim.uv.spawn(
-      "feh",
+      "loupe",
       {
-        args = { "--keep-zoom-vp", "-R", "1", "--conversion-timeout", "1", image_file },
+        args = { image_file },
         stdio = { nil, nil, nil },
       },
       vim.schedule_wrap(function(return_code)
@@ -110,9 +110,11 @@ M.open_image = function()
         end
       end)
     )
-    -- Store the PID for later use
-    local pid = handle:get_pid()
-    vim.g.nvim_soil_feh_pid = pid -- Use a global variable, or another method to store the PID
+    if handle ~= nil then
+      -- Store the PID for later use
+      local pid = handle:get_pid()
+      vim.g.nvim_soil_feh_pid = pid -- Use a global variable, or another method to store the PID
+    end
   end
 end
 
