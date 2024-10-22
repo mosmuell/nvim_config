@@ -11,6 +11,7 @@ local M = {
 
 M.daps = {
   "python",
+  "delve",
   -- "codelldb",
 }
 
@@ -62,8 +63,23 @@ function M.config()
       command = "node",
       args = { vim.fn.stdpath("data") .. "/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js" },
     },
+    go = {
+      type = "executable",
+      command = "node",
+      args = { vim.fn.stdpath("data") .. "/mason/packages/go-debug-adapter/extension/dist/debugAdapter.js" },
+    },
   }
   dap.configurations = {
+    go = {
+      {
+        type = "go",
+        name = "Debug",
+        request = "launch",
+        showLog = false,
+        program = "${file}",
+        dlvToolPath = vim.fn.stdpath("data") .. "/mason/packages/delve/dlv",
+      },
+    },
     typescriptreact = {
       {
         name = "Debug with Firefox (port 5173)",
