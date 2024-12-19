@@ -6,10 +6,7 @@ return {
     },
     python = {
       analysis = {
-        typeCheckingMode = "on",
-        autoSearchPaths = true,
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true,
+        ignore = { "*" },
       },
       pythonPath = require("utils.paths").venv_python(),
     },
