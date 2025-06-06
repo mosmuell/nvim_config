@@ -186,6 +186,7 @@ customKeymap("n", "<F41>", "<cmd>lua require'dap'.run_last()<cr>", "Restart") --
 -- customKeymap("n", "<C-k>", "<cmd>lua require('dapui').eval()<cr>", "Evaluate expression") --> defined in lua/plugins/dap.lua (keybinding only present when debugging)
 
 -- Lsp
+customKeymap("v", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
 customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
 customKeymap("n", "<leader>lR", "<CMD>LspRestart<CR><CMD>NullLsRestart<CR>", "Restart LSP and NullLs")
 customKeymap("n", "<leader>li", "<CMD>LspInfo<CR>", "LSP Info")
