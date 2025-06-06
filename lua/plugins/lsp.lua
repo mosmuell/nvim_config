@@ -27,7 +27,7 @@ local M = {
 M.lsp_servers = {
   "ansiblels",
   "bashls",
-  "clangd",
+  "clangd", -- use CMAKE_EXPORT_COMPILE_COMMANDS=ON to tell CMake to export the exact compilation instructions, which are essential for clangd and other tooling to function correctly
   "cssls",
   "eslint",
   -- "gopls",
