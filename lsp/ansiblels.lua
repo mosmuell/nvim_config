@@ -5,19 +5,26 @@ return {
   cmd = { "ansible-language-server", "--stdio" },
   settings = {
     ansible = {
+      python = {
+        interpreterPath = "python",
+      },
       ansible = {
         path = "ansible",
         useFullyQualifiedCollectionNames = true,
       },
-      ansibleLint = {
-        enabled = true,
-        path = "ansible-lint",
-      },
       executionEnvironment = {
         enabled = false,
       },
-      python = {
-        interpreterPath = "python",
+      validation = {
+        enabled = true,
+        lint = {
+          enabled = true,
+          path = "ansible-lint",
+        },
+      },
+      ansibleLint = {
+        enabled = true,
+        path = "ansible-lint",
       },
       completion = {
         provideRedirectModules = true,
@@ -25,6 +32,7 @@ return {
       },
     },
   },
-  root_dir = require("lspconfig.util").root_pattern("ansible.cfg", ".ansible-lint"),
+  root_markers = { "ansible.cfg", ".ansible-lint" },
+  -- root_dir = require("lspconfig.util").root_pattern("ansible.cfg", ".ansible-lint"),
   single_file_support = true,
 }
