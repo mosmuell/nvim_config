@@ -1,6 +1,6 @@
 local M = {
   "aserowy/tmux.nvim",
-  commit = "673782b74a6055d430d3f5148a033edd99e5519f",
+  commit = "2c1c3be",
   event = "VeryLazy",
   opts = {
     -- overwrite default configuration
