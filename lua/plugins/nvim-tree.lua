@@ -1,7 +1,25 @@
 local M = {
   "kyazdani42/nvim-tree.lua",
-  commit = "48d0e82f9434691cc50d970898142a8c084a49d6",
+  commit = "e179ad2",
   event = "VeryLazy",
+  dependencies = {
+    {
+      "nvim-tree/nvim-web-devicons",
+      event = "VeryLazy",
+      opts = {
+        override = {
+          zsh = {
+            icon = "",
+            color = "#428850",
+            cterm_color = "65",
+            name = "Zsh",
+          },
+        },
+        color_icons = true,
+        default = true,
+      },
+    }
+  }
 }
 
 local function change_root_to_global_cwd()
