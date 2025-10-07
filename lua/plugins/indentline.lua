@@ -1,6 +1,6 @@
 local M = {
   "lukas-reineke/indent-blankline.nvim",
-  tag = "v3.7.1",
+  -- tag = "v3.7.1",
   event = { "BufRead", "BufNewFile" },
 }
 

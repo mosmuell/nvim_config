@@ -5,7 +5,7 @@ local M = {
   dependencies = {
     {
       "JoosepAlviste/nvim-ts-context-commentstring",
-      commit = "6b5f95aa4d24f2c629a74f2c935c702b08dbde62",
+      -- commit = "6b5f95aa4d24f2c629a74f2c935c702b08dbde62",
     },
   },
 }
@@ -44,6 +44,7 @@ function M.config()
     ---Whether the cursor should stay at its position
     sticky = true,
     ---Lines to be ignored while (un)comment
+    ---@diagnostic disable-next-line: assign-type-mismatch
     ignore = nil,
     ---Enable keybindings
     ---NOTE: If given `false` then the plugin won't create any mappings
@@ -72,6 +73,7 @@ function M.config()
       eol = "gcA",
     },
     ---Function to call after (un)comment
+    ---@diagnostic disable-next-line: assign-type-mismatch
     post_hook = nil,
   })
 end

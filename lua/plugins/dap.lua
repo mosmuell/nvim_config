@@ -1,6 +1,6 @@
 local M = {
   "mfussenegger/nvim-dap",
-  commit = "6f79b822997f2e8a789c6034e147d42bc6706770",
+  commit = "881f7dc",
   event = "VeryLazy",
   dependencies = {
     {
@@ -92,7 +92,7 @@ function M.config()
         end,
         firefoxExecutable = "/usr/bin/firefox",
         profileDir = os.getenv("HOME") .. "/.mozilla/firefox/debug_profile", -- Firefox debug profile (you have to create this yourself in about:profiles)
-        keepProfileChanges = true, -- Keep changes like "devtools.debugger.features.overlay = False"
+        keepProfileChanges = true,                                           -- Keep changes like "devtools.debugger.features.overlay = False"
       },
     },
     cpp = {
@@ -169,7 +169,7 @@ function M.config()
     name = "Python: Run Current File as Module",
     type = "python",
     request = "launch",
-    module = "${fileAsModule}", -- self-defined variable. See get_launchjs_entries()
+    module = "${fileAsModule}",     -- self-defined variable. See get_launchjs_entries()
     console = "integratedTerminal", -- possible: "internalConsole"|"integratedTerminal"|"externalTerminal"
     cwd = "${workspaceFolder}",
     justMyCode = false,
