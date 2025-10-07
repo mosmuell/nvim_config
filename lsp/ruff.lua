@@ -1,5 +1,5 @@
 return {
-  cmd = { require("utils.paths").get_venv_executable("ruff") or "ruff", "server" },
+  cmd = { "ruff", "server" },
   init_options = {
     settings = {
       configurationPreference = "filesystemFirst",
