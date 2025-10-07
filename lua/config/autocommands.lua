@@ -64,7 +64,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return
     end
 
-
     ---[[ Code Actions and Formatting on Save
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("CodeAction and Format on Save", { clear = false }),
@@ -151,9 +150,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nmap("gl", vim.diagnostic.open_float, "Open diagnostics float")
 
     -- toogle inlay hints
-    nmap("<leader>lh", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, "Toggle inlay hints")
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, args.buf) then
+      nmap("<leader>lh", function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end, "Toggle inlay hints")
+    end
     ---]]
   end,
 })

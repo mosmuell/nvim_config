@@ -181,22 +181,16 @@ customKeymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Togg
 customKeymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
 customKeymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
 customKeymap("n", "<F17>", "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Terminate") -- Shift-<F5>
-customKeymap("n", "<F23>", "<cmd>lua require'dap'.step_out()<cr>", "Step out") -- Shift+<F11>
-customKeymap("n", "<F41>", "<cmd>lua require'dap'.run_last()<cr>", "Restart") -- Ctrl+Shift+<F5>
+customKeymap("n", "<F23>", "<cmd>lua require'dap'.step_out()<cr>", "Step out")                                      -- Shift+<F11>
+customKeymap("n", "<F41>", "<cmd>lua require'dap'.run_last()<cr>", "Restart")                                       -- Ctrl+Shift+<F5>
 -- customKeymap("n", "<C-k>", "<cmd>lua require('dapui').eval()<cr>", "Evaluate expression") --> defined in lua/plugins/dap.lua (keybinding only present when debugging)
 
 -- Lsp
-customKeymap("v", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
-customKeymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format file")
+customKeymap("v", "<leader>lf", function() vim.lsp.buf.format { async = true } end, "Format file")
+customKeymap("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, "Format file")
 customKeymap("n", "<leader>lR", "<CMD>LspRestart<CR><CMD>NullLsRestart<CR>", "Restart LSP and NullLs")
 customKeymap("n", "<leader>li", "<CMD>LspInfo<CR>", "LSP Info")
 customKeymap("n", "<leader>lI", "<CMD>Mason<CR>", "Mason")
-customKeymap(
-  "n",
-  "<leader>lh",
-  "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
-  "Toggle Inlay Hint"
-)
 
 -- Toggleterm
 customKeymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", "Open Toggleterm terminal")
