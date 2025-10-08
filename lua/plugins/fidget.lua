@@ -1,6 +1,9 @@
 return {
   "j-hui/fidget.nvim",
-  commit = "b45d21d",
-  event = "VeryLazy",
-  opts = {},
+  commit = "3f54759",
+  opts = {
+    notification = {
+      override_vim_notify = true, -- Automatically override vim.notify() with Fidget
+    }
+  },
 }
