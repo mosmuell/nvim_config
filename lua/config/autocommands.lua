@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "python" },
+  pattern = { 'python', "ps1" },
   callback = function()
     vim.cmd("setlocal shiftwidth=4")
   end,
