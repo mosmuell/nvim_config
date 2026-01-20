@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { 'python', "ps1" },
+  pattern = { "python", "ps1" },
   callback = function()
     vim.cmd("setlocal shiftwidth=4")
   end,
@@ -56,6 +56,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --   end,
 -- })
 
+local lsp_fix_group = vim.api.nvim_create_augroup("CodeAction and Format on Save", { clear = false })
+
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function(args)
@@ -64,9 +66,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return
     end
 
+    vim.api.nvim_clear_autocmds({
+      group = lsp_fix_group,
+      buffer = args.buf,
+    })
+
     ---[[ Code Actions and Formatting on Save
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("CodeAction and Format on Save", { clear = false }),
+      group = lsp_fix_group,
       buffer = args.buf,
       callback = function()
         -- if vim.bo.ft == "python" then
@@ -106,7 +113,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(true, { 0 })
     end
 
-    if client:supports_method('textDocument/completion') then
+    if client:supports_method("textDocument/completion") then
       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
     end
 
