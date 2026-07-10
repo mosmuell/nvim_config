@@ -52,7 +52,12 @@ end
 M.venv_python = function()
   local venv_path = M.get_venv_or_local_venv_dir()
   if venv_path then
-    return venv_path .. "/bin/python"
+    for _, python_bin in ipairs({ "Scripts/python.exe", "bin/python" }) do
+      local candidate = vim.fs.joinpath(venv_path, python_bin)
+      if vim.uv.fs_stat(candidate) then
+        return candidate
+      end
+    end
   end
   return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
