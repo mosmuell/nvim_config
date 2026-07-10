@@ -1,16 +1,12 @@
 local M = {}
-M.get_local_venv_dir = function()
+
+function M.get_local_venv_dir()
   local cwd = vim.fn.getcwd()
 
-  -- Check for ".venv" and "venv" directories
-  local venv_paths = { ".venv", "venv" }
-  for _, venv_path in ipairs(venv_paths) do
-    local full_path = cwd .. "/" .. venv_path
-
-    -- Use io.open to check if the directory exists
-    local f = io.open(full_path, "r")
-    if f then
-      f:close()
+  for _, venv_path in ipairs({ ".venv", "venv" }) do
+    local full_path = vim.fs.joinpath(cwd, venv_path)
+    local stat = vim.uv.fs_stat(full_path)
+    if stat and stat.type == "directory" then
       return full_path
     end
   end
