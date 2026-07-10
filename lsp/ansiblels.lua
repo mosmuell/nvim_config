@@ -1,7 +1,5 @@
 return {
-  filetypes = {
-    "yaml.ansible",
-  },
+  filetypes = { "yaml.ansible" },
   cmd = { "ansible-language-server", "--stdio" },
   settings = {
     ansible = {
