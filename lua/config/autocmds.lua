@@ -68,6 +68,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("gr", vim.lsp.buf.references, "List references")
     map("gl", vim.diagnostic.open_float, "Open diagnostics float")
     map("<leader>lr", vim.lsp.buf.rename, "Rename")
+    map("<F2>", vim.lsp.buf.rename, "Rename")
     map("<leader>la", vim.lsp.buf.code_action, "Code action")
     map("<leader>lf", function()
       vim.lsp.buf.format({ async = true })
@@ -78,8 +79,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>lk", function()
       vim.diagnostic.jump({ count = -1, float = true })
     end, "Move to previous diagnostic")
-    map("<leader>lr", vim.lsp.buf.rename, "Rename")
-    map("<F2>", vim.lsp.buf.rename, "Rename")
 
     if client:supports_method("textDocument/inlayHint") then
       vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })

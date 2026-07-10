@@ -29,6 +29,7 @@ map("n", "[d", function()
 end, { desc = "Previous diagnostic" })
 map("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })
 map("n", "<leader>lI", "<cmd>Mason<CR>", { desc = "Mason" })
+map("n", "<leader>li", "<cmd>checkhealth vim.lsp<CR>", { desc = "LSP Info" })
 
 -- Explorer
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
