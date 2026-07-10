@@ -24,7 +24,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4        -- the number of spaces inserted for each indentation
 vim.opt.expandtab = true      -- convert tabs to spaces
 
-vim.opt.hlsearch = false      -- highlight all matches on previous search pattern
+vim.opt.hlsearch = true       -- highlight all matches on previous search pattern
 vim.opt.incsearch = true
 
 vim.opt.backup = false                                  -- creates a backup file

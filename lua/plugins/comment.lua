@@ -1,81 +1,38 @@
-local M = {
-  "numToStr/Comment.nvim",
-  commit = "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
-  lazy = true, -- this is possible as no keybindings are set through Comment.nvim. Otherwise, you have to load it.
-  dependencies = {
-    {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      -- commit = "6b5f95aa4d24f2c629a74f2c935c702b08dbde62",
-    },
-  },
-}
+require("ts_context_commentstring").setup({
+  enable_autocmd = false,
+})
 
-function M.config()
-  local comment = require("Comment")
-  require("ts_context_commentstring").setup({
-    enable_autocmd = false,
-  })
-  comment.setup({
-    ---Function to call before (un)comment
-    pre_hook = function(ctx)
-      -- Only calculate commentstring for tsx filetypes
-      if vim.bo.filetype == "typescriptreact" then
-        local U = require("Comment.utils")
+---@diagnostic disable-next-line: missing-fields
+require("Comment").setup({
+  -- Only calculate a context-aware commentstring for tsx filetypes, where
+  -- a single file mixes JS/TS `//` comments with JSX `{/* */}` comments.
+  pre_hook = function(ctx)
+    if vim.bo.filetype ~= "typescriptreact" then
+      ---@diagnostic disable-next-line: missing-return-value
+      return
+    end
 
-        -- Determine whether to use linewise or blockwise commentstring
-        local type = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
+    local U = require("Comment.utils")
+    local key = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
 
-        -- Determine the location where to calculate commentstring from
-        local location = nil
-        if ctx.ctype == U.ctype.blockwise then
-          location = require("ts_context_commentstring.utils").get_cursor_location()
-        elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-          location = require("ts_context_commentstring.utils").get_visual_start_location()
-        end
+    local location = nil
+    if ctx.ctype == U.ctype.blockwise then
+      location = require("ts_context_commentstring.utils").get_cursor_location()
+    elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+      location = require("ts_context_commentstring.utils").get_visual_start_location()
+    end
 
-        return require("ts_context_commentstring.internal").calculate_commentstring({
-          key = type,
-          location = location,
-        })
-      end
-    end,
-    ---Add a space b/w comment and the line
-    padding = true,
-    ---Whether the cursor should stay at its position
-    sticky = true,
-    ---Lines to be ignored while (un)comment
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    ignore = nil,
-    ---Enable keybindings
-    ---NOTE: If given `false` then the plugin won't create any mappings
-    mappings = false,
-    ---LHS of toggle mappings in NORMAL mode
-    toggler = {
-      ---Line-comment toggle keymap
-      line = "gcc",
-      ---Block-comment toggle keymap
-      block = "gbc",
-    },
-    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
-    opleader = {
-      ---Line-comment keymap
-      line = "gc",
-      ---Block-comment keymap
-      block = "gb",
-    },
-    ---LHS of extra mappings
-    extra = {
-      ---Add comment on the line above
-      above = "gcO",
-      ---Add comment on the line below
-      below = "gco",
-      ---Add comment at the end of line
-      eol = "gcA",
-    },
-    ---Function to call after (un)comment
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    post_hook = nil,
-  })
-end
-
-return M
+    ---@diagnostic disable-next-line: return-type-mismatch
+    return require("ts_context_commentstring.internal").calculate_commentstring({
+      key = key,
+      ---@diagnostic disable-next-line: assign-type-mismatch
+      location = location,
+    })
+  end,
+  padding = true,
+  sticky = true,
+  -- Leave `gc`/`gcc` on Neovim's own built-in comment implementation;
+  -- <leader>/ (see keymaps.lua) is the only thing that goes through
+  -- Comment.nvim's API, so it's the only path that gets the pre_hook above.
+  mappings = false,
+})

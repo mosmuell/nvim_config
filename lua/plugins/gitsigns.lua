@@ -1,10 +1,6 @@
-local M = {
-  "lewis6991/gitsigns.nvim",
-  commit = "1ee5c1f",
-  event = "VeryLazy",
-}
+local gs = require("gitsigns")
 
-M.opts = {
+gs.setup({
   signs = {
     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
@@ -40,6 +36,25 @@ M.opts = {
     row = 0,
     col = 1,
   },
-}
+  on_attach = function(bufnr)
+    local function map(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+    end
 
-return M
+    map("n", "]h", gs.next_hunk, "Next git hunk")
+    map("n", "[h", gs.prev_hunk, "Previous git hunk")
+    map("n", "<leader>gs", gs.stage_hunk, "Stage hunk")
+    map("n", "<leader>gr", gs.reset_hunk, "Reset hunk")
+    map("v", "<leader>gs", function()
+      gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+    end, "Stage hunk")
+    map("v", "<leader>gr", function()
+      gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+    end, "Reset hunk")
+    map("n", "<leader>gS", gs.stage_buffer, "Stage buffer")
+    map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage hunk")
+    map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
+    map("n", "<leader>gb", gs.blame_line, "Blame line")
+    map("n", "<leader>gd", gs.diffthis, "Diff against index")
+  end,
+})

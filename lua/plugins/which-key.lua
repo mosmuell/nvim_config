@@ -1,7 +1,9 @@
-local M = {
-  "folke/which-key.nvim",
-  tag = "v3.17.0",
-  event = "VeryLazy",
-}
+local wk = require("which-key")
 
-return M
+wk.setup({})
+
+wk.add({
+  { "<leader>f", group = "Find" },
+  { "<leader>g", group = "Git" },
+  { "<leader>l", group = "LSP" },
+})

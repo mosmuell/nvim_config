@@ -1,27 +1,3 @@
-local M = {
-  "kyazdani42/nvim-tree.lua",
-  commit = "e179ad2",
-  event = "VeryLazy",
-  dependencies = {
-    {
-      "nvim-tree/nvim-web-devicons",
-      event = "VeryLazy",
-      opts = {
-        override = {
-          zsh = {
-            icon = "",
-            color = "#428850",
-            cterm_color = "65",
-            name = "Zsh",
-          },
-        },
-        color_icons = true,
-        default = true,
-      },
-    }
-  }
-}
-
 local function change_root_to_global_cwd()
   local api = require("nvim-tree.api")
   local global_cwd = vim.fn.getcwd(-1, -1)
@@ -40,8 +16,6 @@ local function on_attach(bufnr)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
-  -- Default mappings. Feel free to modify or remove as you wish.
-  --
   -- BEGIN_DEFAULT_ON_ATTACH
   vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts("CD"))
   vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
@@ -51,7 +25,6 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
   vim.keymap.set("n", "<C-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
   vim.keymap.set("n", "<BS>", api.node.navigate.parent_close, opts("Close Directory"))
-  vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
   vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Open Preview"))
   vim.keymap.set("n", ">", api.node.navigate.sibling.next, opts("Next Sibling"))
   vim.keymap.set("n", "<", api.node.navigate.sibling.prev, opts("Previous Sibling"))
@@ -79,7 +52,6 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts("Last Sibling"))
   vim.keymap.set("n", "K", api.node.navigate.sibling.first, opts("First Sibling"))
   vim.keymap.set("n", "m", api.marks.toggle, opts("Toggle Bookmark"))
-  vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
   vim.keymap.set("n", "O", api.node.open.no_window_picker, opts("Open: No Window Picker"))
   vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
   vim.keymap.set("n", "P", api.node.navigate.parent, opts("Parent Directory"))
@@ -97,9 +69,8 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
   -- END_DEFAULT_ON_ATTACH
 
-  -- Mappings migrated from view.mappings.list
-  --
-  -- You will need to insert "your code goes here" for any mappings with a custom action_cb
+  -- Overrides of a few of the above, kept together so the effective
+  -- mapping for each key is unambiguous.
   vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
   vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
   vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
@@ -108,7 +79,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<C-c>", change_root_to_global_cwd, opts("Change Root To Global CWD"))
 end
 
-M.opts = {
+require("nvim-tree").setup({
   on_attach = on_attach,
   update_focused_file = {
     enable = true,
@@ -155,6 +126,4 @@ M.opts = {
     width = 30,
     side = "left",
   },
-}
-
-return M
+})
