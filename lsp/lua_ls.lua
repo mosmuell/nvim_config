@@ -102,6 +102,7 @@ return {
       telemetry = {
         enable = false,
       },
+      hint = { enable = true }, -- add this
     },
   },
 }
