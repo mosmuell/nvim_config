@@ -3,11 +3,25 @@ local map = vim.keymap.set
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 map("n", "<A-q>", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 
--- Window navigation
-map("n", "<M-h>", "<C-w>h", { desc = "Go to left window" })
-map("n", "<M-j>", "<C-w>j", { desc = "Go to lower window" })
-map("n", "<M-k>", "<C-w>k", { desc = "Go to upper window" })
-map("n", "<M-l>", "<C-w>l", { desc = "Go to right window" })
+-- Window / tmux pane navigation. tmux.nvim (Linux only, see plugins/init.lua)
+-- crosses seamlessly into tmux panes at the vim border; elsewhere this is
+-- just <C-w>hjkl.
+if vim.fn.has("linux") == 1 then
+  local tmux = require("tmux")
+  map("n", "<M-h>", tmux.move_left, { desc = "Go to left window/pane" })
+  map("n", "<M-j>", tmux.move_bottom, { desc = "Go to lower window/pane" })
+  map("n", "<M-k>", tmux.move_top, { desc = "Go to upper window/pane" })
+  map("n", "<M-l>", tmux.move_right, { desc = "Go to right window/pane" })
+  map("n", "<M-Up>", tmux.resize_top, { desc = "Resize pane up" })
+  map("n", "<M-Down>", tmux.resize_bottom, { desc = "Resize pane down" })
+  map("n", "<M-Left>", tmux.resize_left, { desc = "Resize pane left" })
+  map("n", "<M-Right>", tmux.resize_right, { desc = "Resize pane right" })
+else
+  map("n", "<M-h>", "<C-w>h", { desc = "Go to left window" })
+  map("n", "<M-j>", "<C-w>j", { desc = "Go to lower window" })
+  map("n", "<M-k>", "<C-w>k", { desc = "Go to upper window" })
+  map("n", "<M-l>", "<C-w>l", { desc = "Go to right window" })
+end
 
 -- Scroll and search centred
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and centre" })
