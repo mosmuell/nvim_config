@@ -41,6 +41,6 @@
 return {
   bundle_path = vim.fn.expand("$MASON/packages/powershell-editor-services/"),
   shell = "pwsh",
-  filetypes = { 'ps1' },
-  root_markers = { 'PSScriptAnalyzerSettings.psd1', '.git' },
+  filetypes = { "ps1" },
+  root_markers = { "PSScriptAnalyzerSettings.psd1", ".git" },
 }
