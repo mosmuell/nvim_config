@@ -17,6 +17,7 @@ local specs = {
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 
   -- LSP tooling
+  { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/j-hui/fidget.nvim" },
   { src = "https://github.com/Bilal2453/luvit-meta" }, -- optional `vim.uv` typings
