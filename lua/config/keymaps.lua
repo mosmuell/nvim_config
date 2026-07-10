@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+map("n", "<A-q>", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 
 -- Window navigation
 map("n", "<M-h>", "<C-w>h", { desc = "Go to left window" })
