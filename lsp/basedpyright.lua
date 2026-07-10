@@ -1,5 +1,5 @@
 return {
-  cmd = { "pyright-langserver", "--stdio" },
+  cmd = { "basedpyright-langserver", "--stdio" },
   filetypes = { "python" },
   settings = {
     pyright = {
@@ -9,6 +9,12 @@ return {
     python = {
       analysis = {
         ignore = { "*" },
+        inlayHints = {
+          variableTypes       = true,
+          callArgumentNames   = true,
+          functionReturnTypes = true,
+          genericTypes        = true,
+        },
       },
       pythonPath = require("utils.paths").venv_python(),
     },
