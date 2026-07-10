@@ -81,3 +81,10 @@ end, { desc = "Next reference" })
 map("n", "<A-p>", function()
   require("illuminate").goto_prev_reference()
 end, { desc = "Previous reference" })
+
+-- Session
+map("n", "<leader>R", function()
+  local session = vim.fn.stdpath("state") .. "/restart_session.vim"
+  vim.cmd("mksession! " .. vim.fn.fnameescape(session))
+  vim.cmd("restart source " .. vim.fn.fnameescape(session))
+end, { desc = "Restart Neovim" })
