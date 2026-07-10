@@ -9,7 +9,7 @@ return {
     },
     python = {
       analysis = {
-        ignore = { "*" },
+        typeCheckingMode = "standard",
         inlayHints = {
           variableTypes       = true,
           callArgumentNames   = true,
