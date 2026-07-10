@@ -53,6 +53,7 @@ end, { desc = "Find project files" })
 map("n", "<leader>gg", function()
   require("plugins.toggleterm").lazygit_toggle()
 end, { desc = "Lazygit" })
+map("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Open Terminal" })
 
 -- Comment (`gc`/`gcc` still work via Neovim's own built-in implementation;
 -- these are the only paths that go through Comment.nvim's pre_hook, which
