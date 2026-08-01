@@ -41,8 +41,8 @@ gs.setup({
       vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
     end
 
-    map("n", "]h", gs.next_hunk, "Next git hunk")
-    map("n", "[h", gs.prev_hunk, "Previous git hunk")
+    map("n", "<leader>gj", function() gs.nav_hunk("next") end, "Next git hunk")
+    map("n", "<leader>gk", function() gs.nav_hunk("prev") end, "Previous git hunk")
     map("n", "<leader>gs", gs.stage_hunk, "Stage hunk")
     map("n", "<leader>gr", gs.reset_hunk, "Reset hunk")
     map("v", "<leader>gs", function()
@@ -52,7 +52,7 @@ gs.setup({
       gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end, "Reset hunk")
     map("n", "<leader>gS", gs.stage_buffer, "Stage buffer")
-    map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage hunk")
+    map("n", "<leader>gu", gs.stage_hunk, "Undo stage hunk")
     map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
     map("n", "<leader>gb", gs.blame_line, "Blame line")
     map("n", "<leader>gd", gs.diffthis, "Diff against index")
